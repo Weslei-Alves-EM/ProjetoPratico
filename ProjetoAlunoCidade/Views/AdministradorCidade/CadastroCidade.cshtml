@@ -1,0 +1,31 @@
+﻿@{
+    bool isEdicao = ViewBag.IsEdicao ?? false;
+    string titulo = isEdicao ? "Edição de Cidade" : "Cadastro de Cidades";
+
+    ViewData["Title"] = titulo;
+}
+
+<body>
+    <div class="d-flex justify-content-center align-items-center" style="height: 75vh;">
+        <div class="col-md-6">
+            <form method="post" asp-controller="AdministradorCidade" asp-action="CadastroCidade">
+                <h1 class="text-center">@ViewData["Title"]</h1>
+                <input type="hidden" id="isEdicao" name="isEdicao" value="@isEdicao" />
+                <div class="form-row">
+                    <div class="form-group col-9">
+                        <label for="inputNome">Nome</label>
+                        <input type="text" class="form-control" id="inputNome" name="Nome">
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="inputUF">UF</label>
+                        <input type="text" class="form-control" id="inputUF" name="UF">
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 d-md-block">
+                    <button type="submit" class="btn btn-fixed-width dev-bg-color-musgo text-white">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

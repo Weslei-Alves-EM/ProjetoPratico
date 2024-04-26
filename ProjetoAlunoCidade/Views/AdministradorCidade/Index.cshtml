@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Página de Cidade";
+}
+<body>
+    <div>
+        <div class="row">
+            <div class="col-6">
+                <h1>Tabela de Cidades</h1>
+            </div>
+            <div class="col-6 text-right">
+                <!-- Botão cadastrar -->
+                <a role="button" class="btn dev-bg-color-musgo text-white" asp-controller="AdministradorCidade" asp-action="CadastroCidade" asp-route-isEdicao="false">Cadastrar Cidade</a>
+            </div>
+            <div class="col-12">
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <table class="table table-hover table-secondary table-bordered mx-auto col-6">
+            <thead class="dev-bg-color-teal">
+                <tr class="text-white text-center">
+
+                    <th scope="col" class="col-3">Nome</th>
+                    <th scope="col" class="col-1">UF</th>
+                    <th scope="col" class="col-2">Opções</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cidade in Model)
+                {
+                    <tr>
+                        <td>@cidade.Nome</td>
+                        <td>@cidade.UF</td>                       
+                        <td>
+                            <div class="d-grid gap-2 d-md-block row text-center">
+                                <a type="button" class="btn btn-fixed-width dev-bg-color-musgo dev-botao-largura text-white text-center"
+                                   href="@Url.Action("CadastroCidade", "AdministradorCidade", new { id = cidade.Id_cidade, isEdicao = true})">
+                                    <i class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">stylus</i>Editar
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+   
+
+</body>
+

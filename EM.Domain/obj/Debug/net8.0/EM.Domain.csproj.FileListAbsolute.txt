@@ -1,0 +1,17 @@
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\EM.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\EM.Domain.AssemblyInfoInputs.cache
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\EM.Domain.AssemblyInfo.cs
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\EM.Domain.csproj.CoreCompileInputs.cache
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\bin\Debug\net8.0\EM.Domain.exe
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\bin\Debug\net8.0\EM.Domain.deps.json
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\bin\Debug\net8.0\EM.Domain.runtimeconfig.json
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\bin\Debug\net8.0\EM.Domain.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\bin\Debug\net8.0\EM.Domain.pdb
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\EM.Domain.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\refint\EM.Domain.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\EM.Domain.pdb
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\EM.Domain.genruntimeconfig.cache
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\ref\EM.Domain.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\bin\Debug\net8.0\FirebirdSql.Data.FirebirdClient.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\EM.Domain.csproj.AssemblyReference.cache
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\EM.Domain.csproj.CopyComplete

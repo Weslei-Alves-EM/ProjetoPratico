@@ -1,5 +1,7 @@
 using EM.Domain;
 using EM.Repository;
+using Microsoft.AspNetCore.Mvc;
+using System;
 namespace EM.Web
 {
     public class Program
@@ -28,10 +30,15 @@ namespace EM.Web
                 pattern: "AdministradorCidade/CadastroCidade/{id}",
                 defaults: new { controller = "AdministradorCidade", action = "CadastroCidade" });
 
-
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=AdministradorAluno}/{action=Index}/{id?}");
+
+            app.MapControllerRoute(
+                name: "cadastroAluno",
+                pattern: "AdministradorAluno/Cadastro",
+                defaults: new { controller = "AdministradorAluno", action = "CadastroAluno" });
+
 
             app.Run();
         }

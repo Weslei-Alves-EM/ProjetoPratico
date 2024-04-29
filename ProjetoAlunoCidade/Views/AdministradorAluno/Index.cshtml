@@ -11,7 +11,7 @@
             </div>
             <div class="col-6 text-right">
                 <!-- Botão cadastrar -->
-                <a role="button" class="btn dev-bg-color-musgo text-white" asp-controller="AdministradorAluno" asp-action="Cadastro">Cadastrar Aluno</a>
+                <a role="button" class="btn dev-bg-color-musgo text-white" asp-controller="AdministradorAluno" asp-action="CadastroAluno">Cadastrar Aluno</a>
             </div>
             <div class="col-12">
                 <hr>
@@ -62,12 +62,12 @@
             <tbody>
                  @foreach (var aluno in Model)
                 {
-                    <tr>
+                    <tr class="text-center">
                         <td>@aluno.Matricula</td>
-                        <td>@aluno.Nome</td>
+                        <td class="text-left">@aluno.Nome</td>
                         <td>@aluno.Sexo</td>
                         <td>@aluno.Cidade.UF</td> 
-                        <td>@aluno.Nascimento</td>
+                        <td>@aluno.Nascimento.ToString("dd/MM/yyyy")</td>
                         <td>@aluno.CPF</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block row text-center">

@@ -18,12 +18,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Workspace Weslei/ProjetoAlunoCidade/ProjetoAlunoCidade/Views/AdministradorAluno/Cadastro.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvckFsdW5vXENhZGFzdHJvLmNzaHRtbA==
+[C:/Workspace Weslei/ProjetoAlunoCidade/ProjetoAlunoCidade/Views/AdministradorAluno/CadastroAluno.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvckFsdW5vXENhZGFzdHJvQWx1bm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Workspace Weslei/ProjetoAlunoCidade/ProjetoAlunoCidade/Views/AdministradorAluno/Editar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvckFsdW5vXEVkaXRhci5jc2h0bWw=
+[C:/Workspace Weslei/ProjetoAlunoCidade/ProjetoAlunoCidade/Views/AdministradorAluno/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvckFsdW5vXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Workspace Weslei/ProjetoAlunoCidade/ProjetoAlunoCidade/Views/AdministradorCidade/CadastroCidade.cshtml]
@@ -32,10 +32,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Workspace Weslei/ProjetoAlunoCidade/ProjetoAlunoCidade/Views/AdministradorCidade/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvckNpZGFkZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Workspace Weslei/ProjetoAlunoCidade/ProjetoAlunoCidade/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Workspace Weslei/ProjetoAlunoCidade/ProjetoAlunoCidade/Views/Shared/Error.cshtml]

@@ -1,4 +1,5 @@
 ﻿using EM.Domain;
+using EM.Domain.Enuns;
 using EM.Repository.banco;
 using EM.Repository.Utilitarios;
 using FirebirdSql.Data.FirebirdClient;
@@ -26,7 +27,7 @@ namespace EM.Repository
                     command.Parameters.CreateParameter("@Sexo", aluno.Sexo);
                     command.Parameters.CreateParameter("@Cidade", aluno.Cidade.Nome);
                     command.Parameters.CreateParameter("@Cidade", aluno.Cidade.UF);
-                    
+
                     command.ExecuteNonQuery();
                 }
             }
@@ -34,38 +35,34 @@ namespace EM.Repository
 
         public IEnumerable<Aluno> Get(Expression<Func<Aluno, bool>> predicate)
         {
-            List<Aluno> alunos = new List<Aluno>();
+            return GetAll().Where(predicate.Compile());
+        }
+
+        public IEnumerable<Aluno> GetAll()
+        {
+            List<Aluno> alunos = [];
 
             using (DbConnection connection = new FbConnection(ConnectionBanc.GetConnectionString()))
             {
                 connection.Open();
                 using (DbCommand command = connection.CreateCommand())
                 {
-                    // Construir a consulta SQL com base no predicado
-                    string sql = "SELECT * FROM Alunos WHERE ";
-                    var expression = (UnaryExpression)predicate.Body;
-                    var lambdaExpression = (LambdaExpression)expression.Operand;
-                    var binaryExpression = (BinaryExpression)lambdaExpression.Body;
-                    var leftExpression = (MemberExpression)binaryExpression.Left;
-                    var rightExpression = (ConstantExpression)binaryExpression.Right;
-
-                    sql += leftExpression.Member.Name + " = @" + leftExpression.Member.Name;
-
-                    command.CommandText = sql;
-                    command.Parameters.Add(new FbParameter("@" + leftExpression.Member.Name, rightExpression.Value));
+                    command.CommandText = @"SELECT A.Matricula, A.Nome, A.Sexo, A.Nascimento, A.CPF, C.UF
+                                    FROM Alunos A
+                                    INNER JOIN Cidades C ON A.Id_cidade = C.Id_cidade";
 
                     using (DbDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            Aluno aluno= new()
+                            Aluno aluno = new Aluno
                             {
                                 Matricula = Convert.ToInt32(reader["Matricula"]),
                                 Nome = reader["Nome"].ToString(),
-                                CPF = reader["CPF"].ToString(),
+                                Sexo = (EnumeradorSexo)reader.GetInt32(reader.GetOrdinal("Sexo")),
                                 Nascimento = Convert.ToDateTime(reader["Nascimento"]),
-                                Sexo = Convert.ToInt32(reader["Sexo"])
-
+                                CPF = reader["CPF"].ToString(),
+                                Cidade = new Cidade { UF = reader["UF"].ToString() }
                             };
 
                             alunos.Add(aluno);
@@ -77,39 +74,6 @@ namespace EM.Repository
             return alunos;
         }
 
-        public IEnumerable<Aluno> GetAll()
-        {
-
-            List<Aluno> alunos = new List<Aluno>();
-
-            using (DbConnection connection = new FbConnection(ConnectionBanc.GetConnectionString()))
-            {
-                connection.Open();
-                using (DbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "SELECT * FROM Alunos";
-
-                    using (DbDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Aluno aluno = new()
-                            {
-                                Matricula = Convert.ToInt32(reader["Matricula"]),
-                                Nome = reader["Nome"].ToString(),
-                                Sexo = Convert.ToInt32(reader["Sexo"]),
-                                
-                                Nascimento = Convert.ToDateTime(reader["Nascimento"]),
-                                CPF = reader["CPF"].ToString()
-                            };
-
-                            alunos.Add(aluno);
-                        }
-                    }
-                }
-                return alunos;
-            }
-        }
 
         public void Remove(Aluno aluno)
         {

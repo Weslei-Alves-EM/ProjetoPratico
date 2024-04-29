@@ -28,44 +28,8 @@ namespace EM.Repository
 
         public IEnumerable<Cidade> Get(Expression<Func<Cidade, bool>> predicate)
         {
-            List<Cidade> cidades = new List<Cidade>();
-
-            using (DbConnection connection = new FbConnection(ConnectionBanc.GetConnectionString()))
-            {
-                connection.Open();
-                using (DbCommand command = connection.CreateCommand())
-                {
-                    // Construir a consulta SQL com base no predicado
-                    string sql = "SELECT * FROM Cidades WHERE ";
-                    var expression = (UnaryExpression)predicate.Body;
-                    var lambdaExpression = (LambdaExpression)expression.Operand;
-                    var binaryExpression = (BinaryExpression)lambdaExpression.Body;
-                    var leftExpression = (MemberExpression)binaryExpression.Left;
-                    var rightExpression = (ConstantExpression)binaryExpression.Right;
-
-                    sql += leftExpression.Member.Name + " = @" + leftExpression.Member.Name;
-
-                    command.CommandText = sql;
-                    command.Parameters.Add(new FbParameter("@" + leftExpression.Member.Name, rightExpression.Value));
-
-                    using (DbDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Cidade cidade = new Cidade
-                            {
-                                Id_Cidade = Convert.ToInt32(reader["Id_Cidade"]),
-                                Nome = reader["Nome"].ToString(),
-                                UF = reader["UF"].ToString()
-                            };
-
-                            cidades.Add(cidade);
-                        }
-                    }
-                }
-            }
-
-            return cidades;
+            return GetAll().Where(predicate.Compile());
+           
         }
 
         public IEnumerable<Cidade> GetAll()
@@ -83,19 +47,17 @@ namespace EM.Repository
                     {
                         while (reader.Read())
                         {
-                            Cidade cidade = new Cidade
+                            Cidade cidade = new()
                             {
-                                Id_Cidade = Convert.ToInt32(reader["Id_Cidade"]),
+                                Id_cidade = Convert.ToInt32(reader["Id_cidade"]),
                                 Nome = reader["Nome"].ToString(),
                                 UF = reader["UF"].ToString()
                             };
-
                             cidades.Add(cidade);
                         }
                     }
                 }
             }
-
             return cidades;
         }
 
@@ -110,7 +72,7 @@ namespace EM.Repository
 
                     command.Parameters.CreateParameter("@Nome", cidade.Nome.ToUpper());
                     command.Parameters.CreateParameter("@UF", cidade.UF.ToUpper());
-                    command.Parameters.CreateParameter("@Id_Cidade", cidade.Id_Cidade);
+                    command.Parameters.CreateParameter("@Id_Cidade", cidade.Id_cidade);
                     command.ExecuteNonQuery();
                 }
             }

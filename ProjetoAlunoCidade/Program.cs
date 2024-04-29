@@ -14,7 +14,7 @@ namespace EM.Web
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
-            
+
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
@@ -22,6 +22,12 @@ namespace EM.Web
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
+
+            app.MapControllerRoute(
+                name: "editarCidade",
+                pattern: "AdministradorCidade/CadastroCidade/{id}",
+                defaults: new { controller = "AdministradorCidade", action = "CadastroCidade" });
+
 
             app.MapControllerRoute(
                 name: "default",

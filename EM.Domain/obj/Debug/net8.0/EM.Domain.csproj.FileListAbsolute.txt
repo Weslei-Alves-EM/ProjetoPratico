@@ -15,3 +15,4 @@ C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\ref\EM.Domain.
 C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\bin\Debug\net8.0\FirebirdSql.Data.FirebirdClient.dll
 C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\EM.Domain.csproj.AssemblyReference.cache
 C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\EM.Domain.csproj.CopyComplete
+C:\Workspace Weslei\ProjetoAlunoCidade\EM.Domain\obj\Debug\net8.0\EM.Domain.sourcelink.json

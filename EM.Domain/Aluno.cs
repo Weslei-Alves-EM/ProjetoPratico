@@ -1,4 +1,5 @@
-﻿using EM.Domain.Interface;
+﻿using EM.Domain.Enuns;
+using EM.Domain.Interface;
 using System.ComponentModel.DataAnnotations;
 
 namespace EM.Domain
@@ -12,7 +13,7 @@ namespace EM.Domain
         public string Nome { get; set; }
         public string CPF { get; set; }
         public DateTime Nascimento { get; set; }
-        public int Sexo { get; set; }
+        public EnumeradorSexo Sexo { get; set; }
         public Cidade Cidade { get; set; }
     }
 }

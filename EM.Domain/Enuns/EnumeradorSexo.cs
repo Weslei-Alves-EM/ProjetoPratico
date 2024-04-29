@@ -2,7 +2,7 @@
 
 namespace EM.Domain.Enuns
 {
-    internal enum EnumeradorSexo
+    public enum EnumeradorSexo
     {
         Masculino,
         Feminino

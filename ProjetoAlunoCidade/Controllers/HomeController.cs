@@ -8,13 +8,10 @@ namespace ProjetoAlunoCidade.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IRepositorioAluno<Aluno> _repositorioAluno;
+        readonly IRepositorioAluno<Aluno> _repositorioAluno;
 
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger, IRepositorioAluno<Aluno> repositorioAluno)
+        public HomeController(IRepositorioAluno<Aluno> repositorioAluno)
         {
-            _logger = logger;
             _repositorioAluno = repositorioAluno;
         }
 
@@ -22,11 +19,6 @@ namespace ProjetoAlunoCidade.Controllers
         {
             var  alunos = _repositorioAluno.GetAll();
             return View(alunos);
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

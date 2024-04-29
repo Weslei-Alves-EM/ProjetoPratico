@@ -32,17 +32,19 @@
                 {
                     <tr>
                         <td>@cidade.Nome</td>
-                        <td>@cidade.UF</td>                       
+                        <td>@cidade.UF</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block row text-center">
+                                @* <span>ID da cidade: @cidade.Id_cidade</span> *@
                                 <a type="button" class="btn btn-fixed-width dev-bg-color-musgo dev-botao-largura text-white text-center"
-                                   href="@Url.Action("CadastroCidade", "AdministradorCidade", new { id = cidade.Id_cidade, isEdicao = true})">
+                                   href="@Url.Action("CadastroCidade", "AdministradorCidade", new { id = cidade.Id_cidade })">
                                     <i class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">stylus</i>Editar
                                 </a>
                             </div>
                         </td>
                     </tr>
                 }
+
             </tbody>
         </table>
 

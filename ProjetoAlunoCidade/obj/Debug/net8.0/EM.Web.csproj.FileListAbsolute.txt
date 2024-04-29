@@ -41,3 +41,4 @@ C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Re
 C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Domain.pdb
 C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Repository.pdb
 C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.csproj.CopyComplete
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.sourcelink.json

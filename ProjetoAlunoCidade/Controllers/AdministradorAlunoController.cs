@@ -1,5 +1,4 @@
-﻿using AspNetCore;
-using EM.Domain;
+﻿using EM.Domain;
 using EM.Repository;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoAlunoCidade.Models;
@@ -23,29 +22,34 @@ namespace EM.Web.Controllers
             var alunos = _repositorioAluno.GetAll();
             return View(alunos);
         }
+
         public IActionResult CadastroAluno(int? id)
         {
-            
-            if (id.HasValue)
+            ViewBag.Cidades = _repositorioCidade.GetAll().ToList();
+
+            if (id != null)
             {
-                Aluno aluno = _repositorioAluno.Get(a => a.Id_Alunos == id).FirstOrDefault();
-                if(aluno == null)
+                var aluno = _repositorioAluno.Get(a => a.Id_Alunos == id).FirstOrDefault();
+                if (aluno == null)
                 {
                     return NotFound();
                 }
                 ViewBag.IsEdicao = true;
                 return View(aluno);
             }
+
+
             ViewBag.IsEdicao = false;
-            var cidades = _repositorioCidade.GetAll().ToList();
-            return View(cidades);
+            return View(new Aluno());
+
         }
+
         [HttpPost]
         public IActionResult CadastroAluno(Aluno aluno)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                if(aluno.Id_Alunos != 0)
+                if (aluno.Id_Alunos > 0)
                 {
                     _repositorioAluno.Update(aluno);
                 }
@@ -55,10 +59,14 @@ namespace EM.Web.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            ViewBag.IsEdicao = aluno.Id_Alunos != 0;
-            var cidades = _repositorioCidade.GetAll().ToList();
-            return View(cidades);
+
+            ViewBag.IsEdicao = aluno.Id_Alunos > 0;
+            ViewBag.Cidades = _repositorioCidade.GetAll().ToList();
+            return View(aluno);
         }
+
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

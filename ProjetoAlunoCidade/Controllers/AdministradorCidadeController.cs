@@ -41,7 +41,7 @@ namespace EM.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (cidade.Id_cidade != 0)
+                if (cidade.Id_cidade > 0)
                 {
                     _repositorioCidade.Update(cidade);
                 }

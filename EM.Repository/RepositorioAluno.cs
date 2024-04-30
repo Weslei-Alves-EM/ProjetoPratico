@@ -17,21 +17,21 @@ namespace EM.Repository
                 connection.Open();
                 using (DbCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "INSERT INTO Alunos (matricula, nome, CPF, nascimento, sexo, cidade) " +
-                               "VALUES (@Matricula, @Nome, @CPF, @Nascimento, @Sexo, @Cidade)";
-
-                    command.Parameters.CreateParameter("@Matricula", aluno.Matricula);
+                    command.CommandText = "INSERT INTO Alunos (matricula, nome, CPF, nascimento, sexo, id_cidade) " +
+                            "VALUES (@Matricula, @Nome, @CPF, @Nascimento, @Sexo, @id_Cidade)";
+                    
+                    command.Parameters.CreateParameter("@Matricula", Extensoes.FormatarNumeroMatricula(aluno.Matricula));
                     command.Parameters.CreateParameter("@Nome", aluno.Nome.ToUpper());
                     command.Parameters.CreateParameter("@CPF", aluno.CPF.ToUpper());
                     command.Parameters.CreateParameter("@Nascimento", aluno.Nascimento);
                     command.Parameters.CreateParameter("@Sexo", aluno.Sexo);
-                    command.Parameters.CreateParameter("@Cidade", aluno.Cidade.Nome);
-                    command.Parameters.CreateParameter("@Cidade", aluno.Cidade.UF);
-
+                    command.Parameters.CreateParameter("@id_Cidade", aluno.Cidade.Id_cidade);
                     command.ExecuteNonQuery();
+
                 }
             }
         }
+
 
         public IEnumerable<Aluno> Get(Expression<Func<Aluno, bool>> predicate)
         {
@@ -47,7 +47,7 @@ namespace EM.Repository
                 connection.Open();
                 using (DbCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = @"SELECT A.Matricula, A.Nome, A.Sexo, A.Nascimento, A.CPF, C.UF
+                    command.CommandText = @"SELECT A.Id_Alunos, A.Matricula, A.Nome, A.Sexo, A.Nascimento, A.CPF, C.UF
                                     FROM Alunos A
                                     INNER JOIN Cidades C ON A.Id_cidade = C.Id_cidade";
 
@@ -57,6 +57,7 @@ namespace EM.Repository
                         {
                             Aluno aluno = new Aluno
                             {
+                                Id_Alunos = Convert.ToInt32(reader["Id_Alunos"]),
                                 Matricula = Convert.ToInt32(reader["Matricula"]),
                                 Nome = reader["Nome"].ToString(),
                                 Sexo = (EnumeradorSexo)reader.GetInt32(reader.GetOrdinal("Sexo")),
@@ -88,27 +89,26 @@ namespace EM.Repository
                 }
             }
         }
-
         public void Update(Aluno aluno)
         {
-            using (DbConnection connection = new FbConnection(ConnectionBanc.GetConnectionString()))
-            {
-                using (DbCommand command = connection.CreateCommand())
-                {
-                    connection.Open();
-                    command.CommandText = "INSERT INTO Alunos (matricula, nome, CPF, nascimento, sexo, cidade) " +
-                               "VALUES (@Matricula, @Nome, @CPF, @Nascimento, @Sexo, @Cidade)";
+            throw new NotImplementedException();
+            //using (DbConnection connection = new FbConnection(ConnectionBanc.GetConnectionString()))
+            //{
+            //    using (DbCommand command = connection.CreateCommand())
+            //    {
+            //        connection.Open();
+            //        command.CommandText = "UPDATE Alunos SET Matricula = @Matricula, Nome = @Nome, CPF = @CPF, Nascimento = @Nascimento," +
+            //            "Sexo = @Sexo, Id_Cidade = @Id_Cidade";
 
-                    command.Parameters.CreateParameter("@Matricula", aluno.Matricula);
-                    command.Parameters.CreateParameter("@Nome", aluno.Nome.ToUpper());
-                    command.Parameters.CreateParameter("@CPF", aluno.CPF.ToUpper());
-                    command.Parameters.CreateParameter("@Nascimento", aluno.Nascimento);
-                    command.Parameters.CreateParameter("@Sexo", aluno.Sexo);
-                    command.Parameters.CreateParameter("@Cidade", aluno.Cidade.Nome);
-                    command.Parameters.CreateParameter("@Cidade", aluno.Cidade.UF);
-                    command.ExecuteNonQuery();
-                }
-            }
+            //        command.Parameters.CreateParameter("@Matricula", 1);
+            //        command.Parameters.CreateParameter("@Nome", aluno.Nome.ToUpper());
+            //        command.Parameters.CreateParameter("@CPF", aluno.CPF.ToUpper());
+            //        command.Parameters.CreateParameter("@Nascimento", aluno.Nascimento);
+            //        command.Parameters.CreateParameter("@Sexo", aluno.Sexo);
+            //        command.Parameters.CreateParameter("@Cidade", aluno.Cidade.Id_cidade);
+            //        command.ExecuteNonQuery();
+            //    }
+            //}
         }
     }
 }

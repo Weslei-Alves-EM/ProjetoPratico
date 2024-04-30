@@ -41,7 +41,7 @@ namespace EM.Repository
                 connection.Open();
                 using (DbCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT * FROM Cidades";
+                    command.CommandText = "SELECT * FROM Cidades order by UF";
 
                     using (DbDataReader reader = command.ExecuteReader())
                     {

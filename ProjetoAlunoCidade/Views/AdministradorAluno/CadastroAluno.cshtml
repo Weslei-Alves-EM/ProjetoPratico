@@ -1,59 +1,63 @@
-﻿
-@{    
+﻿@using EM.Domain.Enuns
+@model EM.Domain.Aluno
+
+
+@{
     bool isEdicao = ViewBag.IsEdicao ?? false;
-    string titulo = isEdicao ? "Editar Aluno" : "Cadastrar Aluno";
+    string titulo = isEdicao ? "Editar Cidade" : "Cadastrar Cidade";
 
     ViewData["Title"] = titulo;
 }
 
-<body class="align-middle">
-    <div class=" d-flex justify-content-center align-items-center" style="height: 80vh;">
-        <div class="col-md-12">
-            <form >
 
-                <h1 class="text-center">Cadastrar Aluno</h1>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Nome</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite o nome">
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputCPF">CPF</label>
-                        <input type="number" class="form-control" id="inputCPF" placeholder="Digite o CPF">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword4">Data de nascimento</label>
-                        <input type="date" class="form-control" id="inputDate" placeholder="">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputSexo">Sexo</label>
-                        <select id="inputSexo" class="form-control" >
-                            <option selected>Sexo </option>
-                            <option>Masculino</option>
-                            <option>Feminino</option>
-                        </select>
-                    </div>
 
-                    <div class="form-group col-md-4">
-                        <label for="inputCidade">Cidade</label>
-                        <select id="inputCidade" class="form-control">
-                            <option value="">Selecione uma cidade</option>
-                            @foreach (var cidade in Model)
-                            {
-                                <option value="@cidade.Id_cidade">@cidade.Nome - @cidade.UF</option>
-                            }
-                        </select>
-                    </div>
-                </div>
+@* <h1 class="text-center">@ViewData["Title"]</h1> *@
 
-                <div class="d-grid gap-2 d-md-block ">
+<form method="post" asp-action="CadastroAluno">
 
-                    <a type="button" class="btn btn-fixed-width dev-bg-color-musgo text-white" asp-controller="Administrador" asp-action="SalvarCadastro">  Salvar  </a>
-                    <a type="button" class="btn btn-fixed-width btn-secondary" asp-controller="Home" asp-action="Index">Voltar</a>
-                </div>
-            </form>
+    <!-- Campos do aluno -->
+    <input type="hidden" asp-for="Id_Alunos" />
+    <input type="hidden" id="isEdicao" name="isEdicao" value="@isEdicao" />
+    <div class="form-group">
+        <label asp-for="Nome" for="inputNome">Nome</label>
+        <input asp-for="Nome" type="text" class="form-control" id="Nome" name="Nome" aria-describedby="nameHelp" placeholder="Digite o nome" value="@Model.Nome">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="CPF" for="CPF">CPF</label>
+            <input type="number" asp-for="CPF" class="form-control" id="CPF" name="CPF" placeholder="Digite o CPF" value="@Model.CPF">
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Nascimento" for="Date">Data de nascimento</label>
+            <input type="date" asp-for="Nascimento" class="form-control" id="Nascimento" name="Nascimento" placeholder="" value="@Model.Nascimento">
         </div>
     </div>
-</body>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="Sexo" for="inputSexo">Sexo</label>
+            <select id="Sexo" name="Sexo" class="form-control" value="@Model.Sexo">
+                <option selected>Sexo</option>
+                <option value="0">Masculino</option>
+                <option value="1">Feminino</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label asp-for="Cidade" for="Cidade">Cidade</label>
+            <select id="Cidade.Id_cidade" name="Cidade.ID_cidade" class="form-control" value="@Model.Cidade">
+                <option value="">Selecione uma cidade</option>
+                @if (ViewBag.Cidades != null)
+                {
+                    foreach (var cidade in ViewBag.Cidades)
+                    {
+                        <option value="@cidade.Nome">@cidade.Nome - @cidade.UF</option>
+                    }
+                }
+
+            </select>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a type="button" class="btn btn-fixed-width btn-secondary" asp-controller="Home" asp-action="Index">Voltar</a>
+</form>

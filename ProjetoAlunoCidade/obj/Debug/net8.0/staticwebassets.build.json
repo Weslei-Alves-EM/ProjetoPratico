@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FVkF36pmr7rQLRuYks90J8huSrM0O9PAskfYScLvvC4=",
+  "Hash": "hKgOwXZAlxPZjciW2YJalRbIRTQJ5C7g9LHEv/wsY58=",
   "Source": "EM.Web",
   "BasePath": "_content/EM.Web",
   "Mode": "Default",
@@ -148,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\escolar_manager_logo.png"
+    },
+    {
+      "Identity": "C:\\Workspace Weslei\\ProjetoAlunoCidade\\ProjetoAlunoCidade\\wwwroot\\js\\script.js",
+      "SourceId": "EM.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Workspace Weslei\\ProjetoAlunoCidade\\ProjetoAlunoCidade\\wwwroot\\",
+      "BasePath": "_content/EM.Web",
+      "RelativePath": "js/script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\script.js"
     },
     {
       "Identity": "C:\\Workspace Weslei\\ProjetoAlunoCidade\\ProjetoAlunoCidade\\wwwroot\\js\\site.js",

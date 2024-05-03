@@ -7,9 +7,9 @@ namespace EM.Web.Controllers
     public class AdministradorCidadeController : Controller
     {
 
-        readonly IRepositorioCidade<Cidade> _repositorioCidade;
+        readonly IRepositorioGeral<Cidade> _repositorioCidade;
 
-        public AdministradorCidadeController(IRepositorioCidade<Cidade> reposiitorioCidade)
+        public AdministradorCidadeController(IRepositorioGeral<Cidade> reposiitorioCidade)
         {
             _repositorioCidade = reposiitorioCidade;
         }
@@ -53,6 +53,5 @@ namespace EM.Web.Controllers
             }
             return View(cidade);
         }
-
     }
 }

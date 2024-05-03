@@ -1,17 +1,16 @@
 ﻿using EM.Domain;
 using EM.Repository.banco;
-using EM.Repository.Utilitarios;
+using EM.Domain.Utilitarios;
 using FirebirdSql.Data.FirebirdClient;
 using System.Data.Common;
 using System.Linq.Expressions;
 
 namespace EM.Repository
 {
-    public class RepositorioCidade : IRepositorioCidade<Cidade>
+    public class RepositorioCidade : IRepositorioGeral<Cidade>
     {
         public void Add(Cidade cidade)
         {
-
             using (DbConnection connection = new FbConnection(ConnectionBanc.GetConnectionString()))
             {
                 connection.Open();
@@ -26,11 +25,8 @@ namespace EM.Repository
             }
         }
 
-        public IEnumerable<Cidade> Get(Expression<Func<Cidade, bool>> predicate)
-        {
-            return GetAll().Where(predicate.Compile());
-           
-        }
+        public IEnumerable<Cidade> Get(Expression<Func<Cidade, bool>> predicate) => GetAll().Where(predicate.Compile());           
+        
 
         public IEnumerable<Cidade> GetAll()
         {

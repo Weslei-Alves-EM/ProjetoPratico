@@ -11,7 +11,8 @@ namespace EM.Web
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddTransient<IRepositorioAluno<Aluno>, RepositorioAluno>();
-            builder.Services.AddTransient<IRepositorioCidade<Cidade>, RepositorioCidade>();
+            builder.Services.AddTransient<IRepositorioGeral<Cidade>, RepositorioCidade>();
+            builder.Services.AddTransient<IRepositorioGeral<Aluno>, RepositorioAluno>();
 
             builder.Services.AddControllersWithViews();
 
@@ -39,7 +40,12 @@ namespace EM.Web
                 pattern: "AdministradorAluno/Cadastro",
                 defaults: new { controller = "AdministradorAluno", action = "CadastroAluno" });
 
+            app.MapControllerRoute(
+                name: "removerAluno",
+                pattern: "AdministradorAluno/RemoverAluno/{id}",
+                defaults: new { controller = "AdministradorAluno", action = "Index" });
 
+   
             app.Run();
         }
     }

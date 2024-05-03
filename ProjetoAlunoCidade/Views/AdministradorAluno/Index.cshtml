@@ -18,29 +18,32 @@
             </div>
         </div>
 
+      
 
         <!-- Checkbox de filtro de busca -->
-        <div class=" form-check-inline">
+        <div class="form-check-inline">
             <b>Opção de busca: &nbsp;</b>
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="opcao1">
-            <label class="form-check-label" for="inlineRadio1">Matricula</label>
         </div>
         <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="opcao2">
-            <label class="form-check-label" for="inlineRadio2">Nome</label>
+            <input class="form-check-input" type="radio" name="tipoBusca" id="matriculaRadio" value="matricula">
+            <label class="form-check-label" for="matriculaRadio">Matrícula</label>
         </div>
-        <div class=" form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="opcao3">
-            <label class="form-check-label" for="inlineRadio3">Estado</label>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="tipoBusca" id="nomeRadio" value="nome">
+            <label class="form-check-label" for="nomeRadio">Nome</label>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="tipoBusca" id="estadoRadio" value="estado">
+            <label class="form-check-label" for="estadoRadio">Estado</label>
         </div>
 
-        <form class="form-row">
-            <div class="form-group mb-2 col-5">
-                <label for="inputPassword2" class="sr-only "></label>
-                <input type="text" class="form-control " id="inputPassword2" placeholder="Matrícula ou nome do aluno">
+        <form class="form-row" id=" formBusca" action="/AdministradorAluno/Buscar" method="get">
+            <div class="form-group mb-2 col-5" id="inputField">
+                <label for="valorBusca" class="sr-only "></label>
+                <input type="text" class="form-control " id="valorBusca" name="valorBusca" placeholder="Digite a matrícula, nome ou estado do aluno">
             </div>
             <div class="col-5">
-                <button type="submit" class="btn dev-bg-color-musgo text-white mb-2 ">Buscar</button>
+                <button type="submit" class="btn dev-bg-color-musgo text-white mb-2" id="btnBuscar">Buscar</button>
 
             </div>
         </form>
@@ -60,54 +63,57 @@
                 </tr>
             </thead>
             <tbody>
-                 @foreach (var alunos in Model)
+                @foreach (var aluno in Model)
                 {
                     <tr class="text-center">
-                        <td>@alunos.Matricula</td>
-                        <td class="text-left">@alunos.Nome</td>
-                        <td>@alunos.Sexo</td>
-                        <td>@alunos.Cidade.UF</td> 
-                        <td>@alunos.Nascimento.ToString("dd/MM/yyyy")</td>
-                        <td>@alunos.CPF</td>
+                        <td>@aluno.Matricula</td>
+                        <td class="text-left">@aluno.Nome</td>
+                        <td>@aluno.Sexo</td>
+                        <td>@aluno.Cidade.UF</td>
+                        <td>@aluno.Nascimento.ToString("dd/MM/yyyy")</td>
+                        <td>@aluno.CPF</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block row text-center">
-
                                 <a type="button" class="btn btn-fixed-width dev-bg-color-musgo dev-botao-largura text-white text-center"
-                                   href="@Url.Action("CadastroAluno", "AdministradorAluno", new { id = alunos.Id_Alunos })">
-                                    <i class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">stylus</i>Editar
+                                   href="@Url.Action("CadastroAluno", "AdministradorAluno", new { id = aluno.Id_Alunos })">
+                                    <i class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;"></i>Editar
                                 </a>
-                                <a type="button" class="btn btn-fixed-width dev-botao-largura btn-secondary text-center text-white" data-toggle="modal" data-target="#ExemploModalCentralizado">
-                                    <i class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">stylus</i>Excluir
+                                <a type="button" class="btn btn-fixed-width dev-botao-largura btn-secondary text-center text-white"
+                                   data-toggle="modal" data-target="#modalExcluir_@aluno.Id_Alunos">
+                                    <i class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;"></i>Excluir
                                 </a>
                             </div>
                         </td>
                     </tr>
-                } 
+
+                    <!-- Modal para exclusão -->
+                    <div class="modal fade" id="modalExcluir_@aluno.Id_Alunos" tabindex="-1" role="dialog" aria-labelledby="modalExcluirLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalExcluirLabel" >Tem certeza que deseja excluir esse aluno?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Nome: @aluno.Nome - Matrícula: @aluno.Matricula</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <form method="post" action="@Url.Action("RemoverAluno", "AdministradorAluno", new { id = aluno.Id_Alunos })">
+                                        <button type="submit" class="btn btn-danger">Excluir</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
             </tbody>
+
         </table>
     </div>
 </body>
 
-<!-- Forms de deletar aluno -->
 
-<div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-center " id="TituloModalCentralizado"> Tem certeza que deseja excluir esse aluno?</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body text-center">
-                <img src="/images/danger.png" class="dev-image-danger" alt="Image" />
-                <h4>Nome: - Matricula: </h4>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btn-lg dev-botao-largura" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger btn-lg dev-botao-largura">Excluir</button>
-            </div>
-        </div>
-    </div>
-</div>

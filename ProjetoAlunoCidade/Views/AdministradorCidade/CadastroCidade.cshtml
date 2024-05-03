@@ -15,15 +15,20 @@
                 <input type="hidden" asp-for="Id_cidade" />
                 <input type="hidden" id="isEdicao" name="isEdicao" value="@isEdicao" />
                 <div class="form-row">
+                    <!-- Nome -->
+
                     <div class="form-group col-9">
                         <label asp-for="Nome">Nome</label>
                         <input asp-for="Nome" class="form-control" value="@Model.Nome" />
-                    </div>  
+                    </div>
+                    <!-- UF -->
+
                     <div class="form-group col-3">
                         <label asp-for="UF">UF</label>
                         <input asp-for="UF" class="form-control" value="@Model.UF" />
                     </div>
                 </div>
+                <!-- Botao salvar/voltar-->
 
                 <div class="d-grid gap-2 d-md-block">
                     <button type="submit" class="btn btn-fixed-width dev-bg-color-musgo text-white">Salvar</button>

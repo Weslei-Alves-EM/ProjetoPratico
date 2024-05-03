@@ -1,44 +1,89 @@
 ﻿using EM.Domain;
+using EM.Domain.Enuns;
 using EM.Repository;
 using Microsoft.AspNetCore.Mvc;
-using ProjetoAlunoCidade.Models;
-using System.Diagnostics;
 
 namespace EM.Web.Controllers
 {
     public class AdministradorAlunoController : Controller
     {
-        readonly IRepositorioCidade<Cidade> _repositorioCidade;
+        readonly IRepositorioGeral<Cidade> _repositorioGeralCidade;
+        readonly IRepositorioGeral<Aluno> _repositorioGeralAluno;
         readonly IRepositorioAluno<Aluno> _repositorioAluno;
 
 
-        public AdministradorAlunoController(IRepositorioCidade<Cidade> repositorioCidade, IRepositorioAluno<Aluno> repositorioAluno)
+        public AdministradorAlunoController(IRepositorioGeral<Cidade> repositorioGeralCidade, IRepositorioAluno<Aluno> repositorioAluno, IRepositorioGeral<Aluno> repositorioGeralAluno)
         {
-            _repositorioCidade = repositorioCidade;
+            _repositorioGeralCidade = repositorioGeralCidade;
             _repositorioAluno = repositorioAluno;
+            _repositorioGeralAluno = repositorioGeralAluno;
         }
+
         public IActionResult Index()
         {
-            var alunos = _repositorioAluno.GetAll();
+            var alunos = _repositorioGeralAluno.GetAll();
             return View(alunos);
         }
 
+        public IActionResult Buscar(string matricula, string nome, string estado)
+        {
+            IEnumerable<Aluno> alunos = null;
+
+            // Verifica se a busca é por matrícula
+            if (!string.IsNullOrEmpty(matricula))
+            {
+                int matriculaInt;
+                if (int.TryParse(matricula, out matriculaInt))
+                {
+                    var aluno = _repositorioAluno.GetByMatricula(matriculaInt);
+                    if (aluno != null)
+                    {
+                        alunos = new List<Aluno> { aluno };
+                    }
+                }
+            }
+            // Verifica se a busca é por nome
+            else if (!string.IsNullOrEmpty(nome))
+            {
+                alunos = _repositorioAluno.GetByContendoNoNome(nome);
+            }
+            // Verifica se a busca é por estado
+            else if (!string.IsNullOrEmpty(estado))
+            {
+                alunos = _repositorioAluno.GetByEstado(estado);
+            }
+            // Caso nenhum parâmetro tenha sido fornecido, carrega todos os alunos
+            else
+            {
+                alunos = _repositorioGeralAluno.GetAll();
+            }
+
+            return View("Index", alunos);
+        }
+
+
         public IActionResult CadastroAluno(int? id)
         {
-            ViewBag.Cidades = _repositorioCidade.GetAll().ToList();
+            ViewBag.Cidades = _repositorioGeralCidade.GetAll().ToList();
 
             if (id != null)
             {
-                var aluno = _repositorioAluno.Get(a => a.Id_Alunos == id).FirstOrDefault();
+                var aluno = _repositorioGeralAluno.Get(a => a.Id_Alunos == id).FirstOrDefault();
                 if (aluno == null)
                 {
                     return NotFound();
                 }
                 ViewBag.IsEdicao = true;
+                if (aluno.Nascimento == default(DateTime))
+                {
+                    aluno.Nascimento = DateTime.Today;
+                }
+                if (aluno.Sexo == 0 || aluno.Sexo == (EnumeradorSexo)0)
+                {
+                    aluno.Sexo = EnumeradorSexo.Masculino; // ou qualquer valor padrão que você queira
+                }
                 return View(aluno);
             }
-
-
             ViewBag.IsEdicao = false;
             return View(new Aluno());
 
@@ -47,30 +92,34 @@ namespace EM.Web.Controllers
         [HttpPost]
         public IActionResult CadastroAluno(Aluno aluno)
         {
+            ViewBag.Cidades = _repositorioGeralCidade.GetAll().ToList();
+
             if (ModelState.IsValid)
             {
                 if (aluno.Id_Alunos > 0)
                 {
-                    _repositorioAluno.Update(aluno);
+                    _repositorioGeralAluno.Update(aluno);
                 }
                 else
                 {
-                    _repositorioAluno.Add(aluno);
+                    _repositorioGeralAluno.Add(aluno);
                 }
                 return RedirectToAction("Index");
             }
-
-            ViewBag.IsEdicao = aluno.Id_Alunos > 0;
-            ViewBag.Cidades = _repositorioCidade.GetAll().ToList();
             return View(aluno);
         }
 
-
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult RemoverAluno(int id)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var aluno = _repositorioGeralAluno.Get(a => a.Id_Alunos == id).FirstOrDefault();
+            if (aluno == null)
+            {
+                return NotFound();
+            }
+
+            _repositorioAluno.Remove(aluno);
+            return RedirectToAction("Index");
         }
     }
 }

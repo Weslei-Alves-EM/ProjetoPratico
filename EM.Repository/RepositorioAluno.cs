@@ -1,17 +1,17 @@
 ﻿using EM.Domain;
+using EM.Domain.Utilitarios;
 using EM.Domain.Enuns;
 using EM.Repository.banco;
-using EM.Repository.Utilitarios;
 using FirebirdSql.Data.FirebirdClient;
 using System.Data.Common;
 using System.Linq.Expressions;
 
 namespace EM.Repository
 {
-    public class RepositorioAluno : IRepositorioAluno<Aluno>
+    public class RepositorioAluno : IRepositorioGeral<Aluno>, IRepositorioAluno<Aluno>
     {
         public void Add(Aluno aluno)
-        {
+        {            
             using (DbConnection connection = new FbConnection(ConnectionBanc.GetConnectionString()))
             {
                 connection.Open();
@@ -27,16 +27,11 @@ namespace EM.Repository
                     command.Parameters.CreateParameter("@Sexo", aluno.Sexo);
                     command.Parameters.CreateParameter("@id_Cidade", aluno.Cidade.Id_cidade);
                     command.ExecuteNonQuery();
-
                 }
             }
         }
 
-
-        public IEnumerable<Aluno> Get(Expression<Func<Aluno, bool>> predicate)
-        {
-            return GetAll().Where(predicate.Compile());
-        }
+        
 
         public IEnumerable<Aluno> GetAll()
         {
@@ -83,32 +78,39 @@ namespace EM.Repository
                 connection.Open();
                 using (DbCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "DELETE FROM Alunos WHERE Id_Aluno = @Id_Aluno";
-                    command.Parameters.CreateParameter("@Id_Aluno", aluno.Id_Alunos);
+                    command.CommandText = "DELETE FROM Alunos WHERE Id_Alunos = @Id_Alunos";
+                    command.Parameters.CreateParameter("@Id_Alunos", aluno.Id_Alunos);
                     command.ExecuteNonQuery();
                 }
             }
         }
         public void Update(Aluno aluno)
         {
-            throw new NotImplementedException();
-            //using (DbConnection connection = new FbConnection(ConnectionBanc.GetConnectionString()))
-            //{
-            //    using (DbCommand command = connection.CreateCommand())
-            //    {
-            //        connection.Open();
-            //        command.CommandText = "UPDATE Alunos SET Matricula = @Matricula, Nome = @Nome, CPF = @CPF, Nascimento = @Nascimento," +
-            //            "Sexo = @Sexo, Id_Cidade = @Id_Cidade";
+            using (DbConnection connection = new FbConnection(ConnectionBanc.GetConnectionString()))
+            {
+                using (DbCommand command = connection.CreateCommand())
+                {
+                    connection.Open();
+                    command.CommandText = "UPDATE Alunos SET  Nome = @Nome, CPF = @CPF, Nascimento = @Nascimento," +
+                        "Sexo = @Sexo, Id_Cidade = @Id_Cidade WHERE Id_Alunos = @Id_Alunos";
 
-            //        command.Parameters.CreateParameter("@Matricula", 1);
-            //        command.Parameters.CreateParameter("@Nome", aluno.Nome.ToUpper());
-            //        command.Parameters.CreateParameter("@CPF", aluno.CPF.ToUpper());
-            //        command.Parameters.CreateParameter("@Nascimento", aluno.Nascimento);
-            //        command.Parameters.CreateParameter("@Sexo", aluno.Sexo);
-            //        command.Parameters.CreateParameter("@Cidade", aluno.Cidade.Id_cidade);
-            //        command.ExecuteNonQuery();
-            //    }
-            //}
+                    // command.Parameters.CreateParameter("@Matricula", Extensoes.FormatarNumeroMatricula(aluno.Matricula)) Matricula = @Matricula,;
+                    command.Parameters.CreateParameter("@Nome", aluno.Nome.ToUpper());
+                    command.Parameters.CreateParameter("@CPF", aluno.CPF.ToUpper());
+                    command.Parameters.CreateParameter("@Nascimento", aluno.Nascimento);
+                    command.Parameters.CreateParameter("@Sexo", aluno.Sexo);
+                    command.Parameters.CreateParameter("@Id_Cidade", aluno.Cidade.Id_cidade);
+                    command.Parameters.CreateParameter("@Id_Alunos", aluno.Id_Alunos);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
+        public IEnumerable<Aluno> Get(Expression<Func<Aluno, bool>> predicate) => GetAll().Where(predicate.Compile());
+
+        public Aluno GetByMatricula(int matricula) => GetAll().First(mt => mt.Matricula == matricula);
+        
+        public IEnumerable<Aluno> GetByContendoNoNome(string parteDoNome) => GetAll().Where(a => a.Nome.IndexOf(parteDoNome, StringComparison.OrdinalIgnoreCase) >= 0);
+
+        public IEnumerable<Aluno> GetByEstado(string uf) => GetAll().Where(a => a.Cidade != null && a.Cidade.UF != null && a.Cidade.UF.Equals(uf, StringComparison.OrdinalIgnoreCase));
     }
 }

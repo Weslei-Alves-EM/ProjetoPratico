@@ -1,6 +1,4 @@
-﻿
-
-namespace EM.Domain.Enuns
+﻿namespace EM.Domain.Enuns
 {
     public enum EnumeradorSexo
     {

@@ -15,4 +15,10 @@
     <ProjectReference Include="..\EM.Repository\EM.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="itextsharp5">
+      <HintPath>..\..\..\Users\Escolar Manager\Desktop\Workspace Weslei\itextsharp5.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

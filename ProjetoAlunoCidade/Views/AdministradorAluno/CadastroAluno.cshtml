@@ -48,16 +48,16 @@
             @if (titulo == "Cadastrar Aluno")
             {
                 <select asp-for="Sexo" id="inputGender" class="form-control">
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
                     <option value="" selected disabled hidden>Escolha o gênero</option>
                 </select>
             }
             else
             {
                 <select asp-for="Sexo" id="inputGender" class="form-control">
-                    <option value="Masculino" selected="@generoSelecionado.Equals("Masculino", StringComparison.OrdinalIgnoreCase)">Masculino</option>
-                    <option value="Feminino" selected="@generoSelecionado.Equals("Feminino", StringComparison.OrdinalIgnoreCase)">Feminino</option>
+                    <option value="M" selected="@generoSelecionado.Equals("M", StringComparison.OrdinalIgnoreCase)">Masculino</option>
+                    <option value="F" selected="@generoSelecionado.Equals("F", StringComparison.OrdinalIgnoreCase)">Feminino</option>
                 </select>
             }
             <span asp-validation-for="Sexo" class="text-white font-weight-bold bg-danger"></span>

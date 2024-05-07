@@ -11,7 +11,7 @@ namespace EM.Repository
     public class RepositorioAluno : IRepositorioGeral<Aluno>, IRepositorioAluno<Aluno>
     {
         public void Add(Aluno aluno)
-        {            
+        {
             using (DbConnection connection = new FbConnection(ConnectionBanc.GetConnectionString()))
             {
                 connection.Open();
@@ -19,7 +19,7 @@ namespace EM.Repository
                 {
                     command.CommandText = "INSERT INTO Alunos (matricula, nome, CPF, nascimento, sexo, id_cidade) " +
                             "VALUES (@Matricula, @Nome, @CPF, @Nascimento, @Sexo, @id_Cidade)";
-                    
+
                     command.Parameters.CreateParameter("@Matricula", Extensoes.FormatarNumeroMatricula(aluno.Matricula));
                     command.Parameters.CreateParameter("@Nome", aluno.Nome.ToUpper());
                     command.Parameters.CreateParameter("@CPF", aluno.CPF.ToUpper());
@@ -31,7 +31,7 @@ namespace EM.Repository
             }
         }
 
-        
+
 
         public IEnumerable<Aluno> GetAll()
         {
@@ -42,7 +42,7 @@ namespace EM.Repository
                 connection.Open();
                 using (DbCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = @"SELECT A.Id_Alunos, A.Matricula, A.Nome, A.Sexo, A.Nascimento, A.CPF, C.UF
+                    command.CommandText = @"SELECT A.Id_Alunos, A.Matricula, A.Nome, A.Sexo, A.Nascimento, A.CPF, C.UF, C.Nome as NomeCidade
                                     FROM Alunos A
                                     INNER JOIN Cidades C ON A.Id_cidade = C.Id_cidade";
 
@@ -58,7 +58,11 @@ namespace EM.Repository
                                 Sexo = (EnumeradorSexo)reader.GetInt32(reader.GetOrdinal("Sexo")),
                                 Nascimento = Convert.ToDateTime(reader["Nascimento"]),
                                 CPF = reader["CPF"].ToString(),
-                                Cidade = new Cidade { UF = reader["UF"].ToString() }
+                                Cidade = new Cidade
+                                {
+                                    UF = reader["UF"].ToString(),
+                                    Nome = reader["NomeCidade"].ToString()
+                                }
                             };
 
                             alunos.Add(aluno);
@@ -108,7 +112,7 @@ namespace EM.Repository
         public IEnumerable<Aluno> Get(Expression<Func<Aluno, bool>> predicate) => GetAll().Where(predicate.Compile());
 
         public Aluno GetByMatricula(int matricula) => GetAll().First(mt => mt.Matricula == matricula);
-        
+
         public IEnumerable<Aluno> GetByContendoNoNome(string parteDoNome) => GetAll().Where(a => a.Nome.IndexOf(parteDoNome, StringComparison.OrdinalIgnoreCase) >= 0);
 
         public IEnumerable<Aluno> GetByEstado(string uf) => GetAll().Where(a => a.Cidade != null && a.Cidade.UF != null && a.Cidade.UF.Equals(uf, StringComparison.OrdinalIgnoreCase));

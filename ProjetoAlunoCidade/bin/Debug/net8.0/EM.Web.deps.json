@@ -10,7 +10,8 @@
         "dependencies": {
           "EM.Domain": "1.0.0",
           "EM.Repository": "1.0.0",
-          "FirebirdSql.Data.FirebirdClient": "10.0.0"
+          "FirebirdSql.Data.FirebirdClient": "10.0.0",
+          "itextsharp5": "5.5.11.0"
         },
         "runtime": {
           "EM.Web.dll": {}
@@ -40,6 +41,14 @@
         "runtime": {
           "EM.Repository.dll": {}
         }
+      },
+      "itextsharp5/5.5.11.0": {
+        "runtime": {
+          "itextsharp5.dll": {
+            "assemblyVersion": "5.5.11.0",
+            "fileVersion": "5.5.11.0"
+          }
+        }
       }
     }
   },
@@ -63,6 +72,11 @@
     },
     "EM.Repository/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "itextsharp5/5.5.11.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

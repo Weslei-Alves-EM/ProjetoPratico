@@ -1,7 +1,5 @@
 using EM.Domain;
 using EM.Repository;
-using Microsoft.AspNetCore.Mvc;
-using System;
 namespace EM.Web
 {
     public class Program
@@ -10,9 +8,9 @@ namespace EM.Web
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddTransient<IRepositorioAluno<Aluno>, RepositorioAluno>();
-            builder.Services.AddTransient<IRepositorioGeral<Cidade>, RepositorioCidade>();
+            builder.Services.AddTransient<IRepositorioAluno<Aluno>, RepositorioAluno>();            
             builder.Services.AddTransient<IRepositorioGeral<Aluno>, RepositorioAluno>();
+            builder.Services.AddTransient<IRepositorioGeral<Cidade>, RepositorioCidade>();
 
             builder.Services.AddControllersWithViews();
 
@@ -45,7 +43,12 @@ namespace EM.Web
                 pattern: "AdministradorAluno/RemoverAluno/{id}",
                 defaults: new { controller = "AdministradorAluno", action = "Index" });
 
-   
+            app.MapControllerRoute(
+                name: "gerarPdf",
+                pattern: "Reports/GerarPdf",
+                defaults: new { controller = "Reports", action = "GerarPdf" });
+
+
             app.Run();
         }
     }

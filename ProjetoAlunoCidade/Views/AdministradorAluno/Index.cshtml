@@ -109,6 +109,18 @@
                         </div>
                     </div>
                 }
+
+                @{
+                    ViewBag.Title = "Página do Relatório";
+                }
+
+                <h2>Página do Relatório</h2>
+
+                @* Botão para gerar o relatório *@
+                <!-- Adicione isso onde você deseja que o botão seja exibido na sua página -->
+                <a href="@Url.Action("GerarPDF", "Reports")" class="btn btn-primary">Gerar Relatório PDF</a>
+
+
             </tbody>
 
         </table>

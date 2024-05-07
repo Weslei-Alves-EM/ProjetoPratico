@@ -11,7 +11,6 @@ namespace EM.Web.Controllers
         readonly IRepositorioGeral<Aluno> _repositorioGeralAluno;
         readonly IRepositorioAluno<Aluno> _repositorioAluno;
 
-
         public AdministradorAlunoController(IRepositorioGeral<Cidade> repositorioGeralCidade, IRepositorioAluno<Aluno> repositorioAluno, IRepositorioGeral<Aluno> repositorioGeralAluno)
         {
             _repositorioGeralCidade = repositorioGeralCidade;
@@ -80,7 +79,7 @@ namespace EM.Web.Controllers
                 }
                 if (aluno.Sexo == 0 || aluno.Sexo == (EnumeradorSexo)0)
                 {
-                    aluno.Sexo = EnumeradorSexo.Masculino; // ou qualquer valor padrão que você queira
+                    aluno.Sexo = EnumeradorSexo.M; // ou qualquer valor padrão que você queira
                 }
                 return View(aluno);
             }

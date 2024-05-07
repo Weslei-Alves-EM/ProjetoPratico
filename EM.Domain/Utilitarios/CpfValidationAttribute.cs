@@ -1,5 +1,4 @@
-﻿using FirebirdSql.Data.Services;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace EM.Domain.Utilitarios
 {

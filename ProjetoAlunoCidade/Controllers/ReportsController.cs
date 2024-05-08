@@ -21,7 +21,7 @@ namespace EM.Web.Controllers
             List<Aluno> alunos = _repositorioGeralAluno.GetAll().ToList();
 
             // Chama a classe TabelaRelatorio para gerar o PDF
-            TabelaRelatorio tabelaRelatorio = new TabelaRelatorio();
+            Relatorio tabelaRelatorio = new Relatorio();
             byte[] pdfBytes = tabelaRelatorio.GerarPDF(alunos);
 
             // Retorna o PDF como um arquivo para download

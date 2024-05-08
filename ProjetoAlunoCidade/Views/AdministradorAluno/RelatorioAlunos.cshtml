@@ -1,0 +1,59 @@
+﻿@model EM.Domain.Cidade
+
+@{
+    ViewData["Title"] = "Pagina de Relatórios";
+}
+
+
+<form>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+			<label for="UF">Filtro de estado</label>
+            <select id="Id_cidade" name="Id_cidade" class="form-control">
+                <option value="">Selecione o filtro</option>
+                @{
+                    var estadosAdicionados = new List<string>();
+                    foreach (var cidade in ViewBag.Cidades)
+                    {
+                        if (!estadosAdicionados.Contains(cidade.UF))
+                        {
+                            <option value="@cidade.Id_cidade">@cidade.UF</option>
+                            estadosAdicionados.Add(cidade.UF);
+                        }
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+			<label for="ordem">Ordenar por</label>
+			<select id="ordem" name="Ordem" class="form-control">
+				<option value="">Selecione opção de ordenação</option>
+				<option value="Nome">Nome</option>
+				<option value="DataNascimento">Data de Nascimento</option>
+				<option value="Cidade">Cidade</option>
+				<option value="UF">Estado</option>
+			</select>
+        </div>
+    </div>
+
+    <div class="btn-group btn-group-toggle mr-3" data-toggle="buttons">
+        <label class="btn btn-primary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> Ativo
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+        </label>
+    </div>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-primary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> Ativo
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+        </label>
+    </div>
+
+
+</form>
+
+

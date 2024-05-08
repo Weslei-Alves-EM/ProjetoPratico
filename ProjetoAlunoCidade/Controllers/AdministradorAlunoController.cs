@@ -120,5 +120,11 @@ namespace EM.Web.Controllers
             _repositorioAluno.Remove(aluno);
             return RedirectToAction("Index");
         }
+
+        public IActionResult RelatorioAlunos()
+        {
+			ViewBag.Cidades = _repositorioGeralCidade.GetAll().ToList();
+			return View();
+		}
     }
 }

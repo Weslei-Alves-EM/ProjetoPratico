@@ -31,8 +31,8 @@
                 @foreach (var cidade in Model)
                 {
                     <tr>
-                        <td>@cidade.Nome</td>
-                        <td>@cidade.UF</td>
+                        <td>@cidade.Nome.ToUpper()</td>
+                        <td>@cidade.UF.ToUpper()</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block row text-center">
                                 @* <span>ID da cidade: @cidade.Id_cidade</span> *@

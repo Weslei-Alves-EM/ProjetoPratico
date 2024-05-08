@@ -1,0 +1,52 @@
+﻿using iTextSharp5.text.pdf;
+using iTextSharp5.text;
+
+namespace EM.Web.Controllers.Reports.ExtensionMethod
+{
+    public static class MetodoExtensao
+    {
+        public static (int anos, int meses, int dias) CalcularIdade(this DateTime dataNascimento)
+        {
+            DateTime dataAtual = DateTime.Today;
+            int anos = dataAtual.Year - dataNascimento.Year;
+            int meses = dataAtual.Month - dataNascimento.Month;
+            int dias = dataAtual.Day - dataNascimento.Day;
+
+            if (meses < 0 || (meses == 0 && dias < 0))
+            {
+                anos--;
+                meses = (dataAtual.Month + 12) - dataNascimento.Month;
+            }
+
+            if (dataAtual.Day < dataNascimento.Day)
+            {
+                meses--;
+                int ultimoDiaMesAnterior = DateTime.DaysInMonth(dataAtual.Year, dataAtual.Month == 1 ? 12 : dataAtual.Month - 1);
+                dias = ultimoDiaMesAnterior - dataNascimento.Day + dataAtual.Day;
+            }
+
+            return (anos, meses, dias);
+        }
+
+        public static void AdicioneCelulaDeDado(this PdfPTable table, Phrase phrase, float fixedHeight = 15, int horizontalAlignment = Element.ALIGN_CENTER, int verticalAlignment = Element.ALIGN_MIDDLE)
+        {
+            PdfPCell cell = new(phrase);
+            cell.FixedHeight = fixedHeight;
+            cell.HorizontalAlignment = horizontalAlignment;
+            cell.VerticalAlignment = verticalAlignment;
+            table.AddCell(cell);
+        }
+
+        public static void AdicioneCelulaDeCabecalho(this PdfPTable table, Phrase phrase, float fixedHeight = 25, int horizontalAlignment = Element.ALIGN_CENTER, int verticalAlignment = Element.ALIGN_MIDDLE)
+        {
+            PdfPCell cell = new PdfPCell(phrase);
+            cell.FixedHeight = fixedHeight;
+            cell.HorizontalAlignment = horizontalAlignment;
+            cell.VerticalAlignment = verticalAlignment;
+            cell.BackgroundColor = new(0, 100, 0); 
+            table.AddCell(cell);
+        }
+
+
+    }
+}

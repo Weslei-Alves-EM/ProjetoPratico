@@ -22,7 +22,7 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label asp-for="CPF" for="CPF">CPF</label>
-            <input type="text" asp-for="CPF" class="form-control" id="CPF" name="CPF" oninput="aplicarMascaraCPF()" placeholder="Digite o CPF" value="@Model.CPF">
+            <input type="text" asp-for="CPF" class="form-control" id="CPF" name="CPF" oninput="this.value = formatarCPF(this.value)" placeholder="Digite o CPF" value="@Model.CPF">
             <span asp-validation-for="CPF" class="text-white font-weight-bold bg-danger"></span>
         </div>
         <!-- Nascimento-->

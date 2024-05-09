@@ -17,7 +17,7 @@ namespace EM.Web.Controllers.Reports
             base.OnStartPage(writer, document);
 
             PdfPTable header = new(2);
-            header.WidthPercentage = 110;
+            header.WidthPercentage = 100;
             header.DefaultCell.Border = PdfPCell.NO_BORDER;
 
             PdfPCell imageCell = new();

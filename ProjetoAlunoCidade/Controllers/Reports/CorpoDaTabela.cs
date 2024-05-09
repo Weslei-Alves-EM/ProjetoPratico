@@ -1,21 +1,34 @@
 ﻿using EM.Domain;
 using EM.Web.Controllers.Reports.ExtensionMethod;
-using iTextSharp5.text.pdf;
 using iTextSharp5.text;
+using iTextSharp5.text.pdf;
 
 namespace EM.Web.Controllers.Reports
 {
     public static class CorpoDaTabela
     {
-        public static PdfPTable CriarTabela(List<Aluno> alunos, string estado = "")
+        public static PdfPTable CriarTabela(List<Aluno> alunos, string ordem = "", bool zebrado)
         {
-            IEnumerable<Aluno> alunosFiltrados = alunos;
-            if (!string.IsNullOrEmpty(estado))
+            switch (ordem)
             {
-                alunosFiltrados = alunos.Where(a => a.Cidade.UF == estado);
+                case "Nome":
+                    alunos = alunos.OrderBy(a => a.Nome).ToList();
+                    break;
+                case "Nascimento":
+                    alunos = alunos.OrderBy(a => a.Nascimento).ToList();
+                    break;
+                case "Cidade":
+                    alunos = alunos.OrderBy(a => a.Cidade.Nome).ToList();
+                    break;
+                case "UF":
+                    alunos = alunos.OrderBy(a => a.Cidade.UF).ToList();
+                    break;
+                default:
+                    break;
             }
-            PdfPTable table = new([12, 30, 19, 13, 8, 16]);
-            table.WidthPercentage = 110;
+
+            PdfPTable table = new([11, 25, 16, 13, 8, 15, 6]);
+            table.WidthPercentage = 100;
 
             table.AdicioneCelulaDeCabecalho(new Phrase("Matrícula", Fontes.FonteCelulaCabecalho()));
             table.AdicioneCelulaDeCabecalho(new Phrase("Nome", Fontes.FonteCelulaCabecalho()));
@@ -23,37 +36,43 @@ namespace EM.Web.Controllers.Reports
             table.AdicioneCelulaDeCabecalho(new Phrase("Nascimento", Fontes.FonteCelulaCabecalho()));
             table.AdicioneCelulaDeCabecalho(new Phrase("Sexo", Fontes.FonteCelulaCabecalho()));
             table.AdicioneCelulaDeCabecalho(new Phrase("Cidade", Fontes.FonteCelulaCabecalho()));
+            table.AdicioneCelulaDeCabecalho(new Phrase("UF", Fontes.FonteCelulaCabecalho()));
 
 
+            bool isZebrado = zebrado;
 
             foreach (Aluno aluno in alunos)
             {
+                BaseColor? backgroundColor = isZebrado ? BaseColor.LIGHT_GRAY : null;
+
                 Phrase matriculaPhrase = new Phrase(aluno.Matricula.ToString(), Fontes.FonteCelulaDados());
-                table.AdicioneCelulaDeDado(matriculaPhrase);
+                table.AdicioneCelulaDeDado(matriculaPhrase, backgroundColor);
 
                 Phrase nomePhrase = new Phrase(aluno.Nome, Fontes.FonteCelulaDados());
-                table.AdicioneCelulaDeDado(nomePhrase, horizontalAlignment: Element.ALIGN_LEFT);
+                table.AdicioneCelulaDeDado(nomePhrase, backgroundColor, horizontalAlignment: Element.ALIGN_LEFT);
 
                 Phrase cpfPhrase = new Phrase(aluno.CPF, Fontes.FonteCelulaDados());
-                table.AdicioneCelulaDeDado(cpfPhrase);
+                table.AdicioneCelulaDeDado(cpfPhrase, backgroundColor);
 
                 DateTime dataNascimento = aluno.Nascimento;
                 (int anos, int meses, int dias) idade = dataNascimento.CalcularIdade();
                 string idadeFormatada = $"{idade.anos} anos, {idade.meses}m, {idade.dias}d";
 
                 Phrase idadePhrase = new Phrase(idadeFormatada, Fontes.FonteCelulaDados());
-                table.AdicioneCelulaDeDado(idadePhrase);
+                table.AdicioneCelulaDeDado(idadePhrase, backgroundColor, horizontalAlignment: Element.ALIGN_LEFT);
 
                 Phrase sexoPhrase = new Phrase(aluno.Sexo.ToString(), Fontes.FonteCelulaDados());
-                table.AdicioneCelulaDeDado(sexoPhrase);
+                table.AdicioneCelulaDeDado(sexoPhrase, backgroundColor);
 
                 Phrase cidadePhrase = new Phrase(aluno.Cidade.Nome, Fontes.FonteCelulaDados());
-                table.AdicioneCelulaDeDado(cidadePhrase);
+                table.AdicioneCelulaDeDado(cidadePhrase, backgroundColor, horizontalAlignment: Element.ALIGN_LEFT);
 
+                Phrase UFPhrase = new Phrase(aluno.Cidade.UF, Fontes.FonteCelulaDados());
+                table.AdicioneCelulaDeDado(UFPhrase, backgroundColor);
+
+                isZebrado = !isZebrado;
             }
-
             return table;
         }
-
     }
 }

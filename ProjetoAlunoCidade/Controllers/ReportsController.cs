@@ -1,4 +1,5 @@
-﻿using EM.Domain;
+﻿
+using EM.Domain;
 using EM.Repository;
 using EM.Web.Controllers.Reports;
 using Microsoft.AspNetCore.Mvc;
@@ -16,15 +17,23 @@ namespace EM.Web.Controllers
             _repositorioGeralAluno = repositorioGeralAluno;
         }
 
-        public ActionResult GerarPDF()
+
+        [HttpGet("Reports/GerarPDF", Name = "GerarPDF")]
+        public ActionResult GerarPDF(string estadoId, string Ordem, string orientacao, bool zebrado)
         {
             List<Aluno> alunos = _repositorioGeralAluno.GetAll().ToList();
 
-            // Chama a classe TabelaRelatorio para gerar o PDF
-            Relatorio tabelaRelatorio = new Relatorio();
-            byte[] pdfBytes = tabelaRelatorio.GerarPDF(alunos);
+            // Aplicar filtro de estado, se selecionado
+            if (!string.IsNullOrEmpty(estadoId))
+            {
+                alunos = alunos.Where(a => a.Cidade.UF == estadoId).ToList();
+            }
 
-            // Retorna o PDF como um arquivo para download
+            // Chamar a classe TabelaRelatorio para gerar o PDF
+            Relatorio tabelaRelatorio = new Relatorio();
+            byte[] pdfBytes = tabelaRelatorio.GerarPDF(alunos, Ordem, orientacao, zebrado);
+
+            // Retornar o PDF como um arquivo para download
             return File(pdfBytes, "application/pdf", "Relatorio_Alunos.pdf");
         }
     }

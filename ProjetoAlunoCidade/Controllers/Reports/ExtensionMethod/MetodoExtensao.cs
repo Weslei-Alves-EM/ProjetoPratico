@@ -28,14 +28,17 @@ namespace EM.Web.Controllers.Reports.ExtensionMethod
             return (anos, meses, dias);
         }
 
-        public static void AdicioneCelulaDeDado(this PdfPTable table, Phrase phrase, float fixedHeight = 15, int horizontalAlignment = Element.ALIGN_CENTER, int verticalAlignment = Element.ALIGN_MIDDLE)
+        public static void AdicioneCelulaDeDado(this PdfPTable table, Phrase phrase, BaseColor backgroundColor, float fixedHeight = 15, int horizontalAlignment = Element.ALIGN_CENTER, int verticalAlignment = Element.ALIGN_MIDDLE)
         {
             PdfPCell cell = new(phrase);
             cell.FixedHeight = fixedHeight;
             cell.HorizontalAlignment = horizontalAlignment;
             cell.VerticalAlignment = verticalAlignment;
+            cell.BackgroundColor = backgroundColor;
+
             table.AddCell(cell);
         }
+
 
         public static void AdicioneCelulaDeCabecalho(this PdfPTable table, Phrase phrase, float fixedHeight = 25, int horizontalAlignment = Element.ALIGN_CENTER, int verticalAlignment = Element.ALIGN_MIDDLE)
         {
@@ -44,9 +47,23 @@ namespace EM.Web.Controllers.Reports.ExtensionMethod
             cell.HorizontalAlignment = horizontalAlignment;
             cell.VerticalAlignment = verticalAlignment;
             cell.BackgroundColor = new(0, 100, 0); 
+
             table.AddCell(cell);
         }
 
+        public static void ZebrarPDF(this PdfPTable table, BaseColor corPar, BaseColor corImpar)
+        {
+            bool isPar = false;
+            for (int i = 1; i < table.Rows.Count; i++)
+            {
+                PdfPRow row = table.Rows[i];
+                foreach (PdfPCell cell in row.GetCells())
+                {
+                    cell.BackgroundColor = isPar ? corPar : corImpar;
+                }
+                isPar = !isPar;
+            }
+        }
 
     }
 }

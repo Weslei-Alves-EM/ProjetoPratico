@@ -48,7 +48,7 @@ namespace EM.Web.Controllers.Reports
                 if (zebrado)
                 {
                    
-                    backgroundColor = contLinhas % 2 == 0 ? BaseColor.LIGHT_GRAY : null;
+                    backgroundColor = contLinhas % 2 == 0 ? new BaseColor(0,30,0,40) : null;
                 }
 
                 Phrase matriculaPhrase = new Phrase(aluno.Matricula.ToString(), Fontes.FonteCelulaDados());

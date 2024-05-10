@@ -8,6 +8,22 @@ namespace EM.Domain
 {
     public class Aluno : IEntidade
     {
+        public Aluno()
+        {       
+        }
+        public Aluno(int id_Alunos, int matricula, string nome, string? cPF, DateTime nascimento, EnumeradorSexo sexo, Cidade cidade)
+        {
+            Id_Alunos = id_Alunos;
+            Matricula = matricula;
+            Nome = nome;
+            CPF = cPF;
+            Nascimento = nascimento;
+            Sexo = sexo;
+            Cidade = cidade;
+        }
+
+       
+
         public int Id_Alunos { get; set; }
         public int Matricula { get; set; }
 
@@ -31,6 +47,32 @@ namespace EM.Domain
 
         [Required(ErrorMessage = "A cidade do usuário é obrigatório")]
         [Display(Name = "Cidade")]
+
+
         public Cidade Cidade { get; set; }
+
+      
+        public override bool Equals(object? obj)
+        {
+            return obj is Aluno aluno &&
+               Matricula == aluno.Matricula &&
+               Nome == aluno.Nome &&
+               Nascimento == aluno.Nascimento &&
+               Sexo == aluno.Sexo &&
+               CPF == aluno.CPF;
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Matricula, Nome, Sexo, Nascimento, CPF);
+        }
+        public override string ToString()
+        {
+            return $"Matrícula: {Matricula}" +
+                $"\nNome: {Nome}" +
+                $"\nCPF: {CPF}" +
+                $"\nSexo: {Sexo}" +
+                $"\nNascimento: {Nascimento}";
+        }
     }
+
 }

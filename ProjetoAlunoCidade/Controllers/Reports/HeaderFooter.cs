@@ -43,7 +43,11 @@ namespace EM.Web.Controllers.Reports
 
         public override void OnEndPage(PdfWriter writer, Document document)
         {
+
             base.OnEndPage(writer, document);
+
+            int pageNumber = writer.PageNumber;
+            int totalPages = writer.PageNumber;
 
             // Adiciona o rodapé
             BaseColor corFonte = new(169, 169, 169);
@@ -54,15 +58,13 @@ namespace EM.Web.Controllers.Reports
             footer.TotalWidth = document.PageSize.Width;
             footer.DefaultCell.Border = PdfPCell.NO_BORDER;
 
-            // Adiciona a mensagem no lado esquerdo do rodapé
             PdfPCell messageCell = new PdfPCell(new Phrase("Escolar Manager Softwares para Gestão Escolar", fonteFooter));
-            messageCell.HorizontalAlignment = Element.ALIGN_CENTER;
+            messageCell.HorizontalAlignment = Element.ALIGN_LEFT;
             messageCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             messageCell.Border = PdfPCell.NO_BORDER;
             footer.AddCell(messageCell);
 
-            // Adiciona a data centralizada no rodapé
-            PdfPCell dateCell = new PdfPCell(new Phrase(DateTime.Now.ToString("dd/MM/yyyy"), fonteFooter));
+            PdfPCell dateCell = new PdfPCell(new Phrase("Emissão\n" + DateTime.Now.ToString("dd/MM/yyyy"), fonteFooter));
             dateCell.HorizontalAlignment = Element.ALIGN_CENTER;
             dateCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             dateCell.Border = PdfPCell.NO_BORDER;

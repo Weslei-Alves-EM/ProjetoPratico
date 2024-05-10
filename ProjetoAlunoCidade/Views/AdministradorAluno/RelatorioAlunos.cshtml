@@ -4,12 +4,16 @@
     ViewData["Title"] = "Página de Relatórios";
 }
 
-<h2>Página de Relatório</h2>
+<div class="text-center mb-4">
+    <!-- Centraliza horizontalmente -->
+    <h2>Página de Relatório</h2>
+</div>
 
 <br />
 
 <form action="@Url.Action("GerarPDF", "Reports")" method="get">
-    <div class="form-row">
+    <div class="form-row justify-content-center">
+        <!-- Centraliza horizontalmente -->
         <div class="form-group col-md-4 ">
             <label for="ordem">Ordenações</label>
             <select id="ordem" name="Ordem" class="form-control">
@@ -23,25 +27,25 @@
     </div>
     <br />
 
-    <div class="form-group row">
-        <div class="col">
+    <div class="form-group row justify-content-center">
+        <!-- Centraliza horizontalmente -->
+        <div >
             <div class="btn-group btn-group-toggle mr-3 " data-toggle="buttons">
-                <label class="btn btn-primary active">
-
-                    <input type="radio" name="orientacao" id="retrato" value="retrato" checked> Retrato
-                </label>
                 <label class="btn btn-primary">
                     <input type="radio" name="orientacao" id="paisagem" value="paisagem"> Paisagem
                 </label>
+                <label class="btn btn-primary active">
+                    <input type="radio" name="orientacao" id="retrato" value="retrato" checked> Retrato
+                </label>
             </div>
         </div>
-        <div class="col">
+        <div >
             <div class="btn-group btn-group-toggle " data-toggle="buttons">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="estiloFundo" id="zebrado" autocomplete="off" value="zebrado" checked> Zebrado
-                </label>
                 <label class="btn btn-primary">
-                    <input type="radio" name="estiloFundo" id="padrao" autocomplete="off" value="padrao"> Padrão
+                    <input type="radio" name="zebrado" id="padrao" autocomplete="off" value="false"> Padrão
+                </label>
+                <label class="btn btn-primary active">
+                    <input type="radio" name="zebrado" id="zebrado" autocomplete="off" value="true" checked> Zebrado
                 </label>
             </div>
         </div>
@@ -50,5 +54,8 @@
     <br />
     <br />
 
-    <button type="submit" class="btn btn-primary">Gerar Relatório em PDF</button>
+    <div class="text-center">
+        <!-- Centraliza horizontalmente -->
+        <button type="submit" class="btn btn-success">Gerar Relatório em PDF</button>
+    </div>
 </form>

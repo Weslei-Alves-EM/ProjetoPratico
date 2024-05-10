@@ -7,7 +7,7 @@ namespace EM.Web.Controllers.Reports
 {
     public static class CorpoDaTabela
     {
-        public static PdfPTable CriarTabela(List<Aluno> alunos, string ordem = "", bool zebrado)
+        public static PdfPTable CriarTabela(List<Aluno> alunos, bool zebrado, string ordem = "")
         {
             switch (ordem)
             {
@@ -27,7 +27,7 @@ namespace EM.Web.Controllers.Reports
                     break;
             }
 
-            PdfPTable table = new([11, 25, 16, 13, 8, 15, 6]);
+            PdfPTable table = new([11, 25, 16, 15, 7, 15, 6]);
             table.WidthPercentage = 100;
 
             table.AdicioneCelulaDeCabecalho(new Phrase("Matrícula", Fontes.FonteCelulaCabecalho()));
@@ -39,11 +39,17 @@ namespace EM.Web.Controllers.Reports
             table.AdicioneCelulaDeCabecalho(new Phrase("UF", Fontes.FonteCelulaCabecalho()));
 
 
-            bool isZebrado = zebrado;
+            int contLinhas = 0;
 
             foreach (Aluno aluno in alunos)
             {
-                BaseColor? backgroundColor = isZebrado ? BaseColor.LIGHT_GRAY : null;
+                BaseColor? backgroundColor = null;
+
+                if (zebrado)
+                {
+                   
+                    backgroundColor = contLinhas % 2 == 0 ? BaseColor.LIGHT_GRAY : null;
+                }
 
                 Phrase matriculaPhrase = new Phrase(aluno.Matricula.ToString(), Fontes.FonteCelulaDados());
                 table.AdicioneCelulaDeDado(matriculaPhrase, backgroundColor);
@@ -70,7 +76,7 @@ namespace EM.Web.Controllers.Reports
                 Phrase UFPhrase = new Phrase(aluno.Cidade.UF, Fontes.FonteCelulaDados());
                 table.AdicioneCelulaDeDado(UFPhrase, backgroundColor);
 
-                isZebrado = !isZebrado;
+                contLinhas++;
             }
             return table;
         }

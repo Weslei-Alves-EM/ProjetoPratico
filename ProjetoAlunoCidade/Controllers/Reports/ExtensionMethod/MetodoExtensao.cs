@@ -28,16 +28,23 @@ namespace EM.Web.Controllers.Reports.ExtensionMethod
             return (anos, meses, dias);
         }
 
-        public static void AdicioneCelulaDeDado(this PdfPTable table, Phrase phrase, BaseColor backgroundColor, float fixedHeight = 15, int horizontalAlignment = Element.ALIGN_CENTER, int verticalAlignment = Element.ALIGN_MIDDLE)
+        public static void AdicioneCelulaDeDado(this PdfPTable table, Phrase phrase, BaseColor? backgroundColor = null, float fixedHeight = 15, int horizontalAlignment = Element.ALIGN_CENTER, int verticalAlignment = Element.ALIGN_MIDDLE)
         {
-            PdfPCell cell = new(phrase);
+            PdfPCell cell = new PdfPCell(phrase);
             cell.FixedHeight = fixedHeight;
             cell.HorizontalAlignment = horizontalAlignment;
             cell.VerticalAlignment = verticalAlignment;
-            cell.BackgroundColor = backgroundColor;
+
+            if (backgroundColor != null)
+            {
+                cell.BackgroundColor = backgroundColor;
+            }
 
             table.AddCell(cell);
         }
+
+
+
 
 
         public static void AdicioneCelulaDeCabecalho(this PdfPTable table, Phrase phrase, float fixedHeight = 25, int horizontalAlignment = Element.ALIGN_CENTER, int verticalAlignment = Element.ALIGN_MIDDLE)

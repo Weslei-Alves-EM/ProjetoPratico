@@ -30,11 +30,12 @@ namespace EM.Web.Controllers
             }
 
             // Chamar a classe TabelaRelatorio para gerar o PDF
-            Relatorio tabelaRelatorio = new Relatorio();
-            byte[] pdfBytes = tabelaRelatorio.GerarPDF(alunos, Ordem, orientacao, zebrado);
+            Relatorio relatorio = new Relatorio();
+            byte[] pdfBytes = relatorio.GerarPDF(alunos, Ordem, orientacao, zebrado);
 
             // Retornar o PDF como um arquivo para download
             return File(pdfBytes, "application/pdf", "Relatorio_Alunos.pdf");
         }
+
     }
 }

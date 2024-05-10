@@ -54,8 +54,7 @@ namespace EM.Web.Controllers.Reports
                 writer.PageEvent = new ImageWatermark("C:\\Workspace Weslei\\ProjetoAlunoCidade\\ProjetoAlunoCidade\\Controllers\\Reports\\Imagens\\imgbackground2_480.png");
                 writer.PageEvent = new HeaderFooter("C:\\Workspace Weslei\\ProjetoAlunoCidade\\ProjetoAlunoCidade\\wwwroot\\images\\escolar-manager-web-176.png");
                 doc.Open();
-
-                PdfPTable tabela = CorpoDaTabela.CriarTabela(alunos);
+                PdfPTable tabela = CorpoDaTabela.CriarTabela(alunos, zebrado);
                 tabela.SpacingBefore = 20;
                 tabela.HeaderRows = 1;
                 

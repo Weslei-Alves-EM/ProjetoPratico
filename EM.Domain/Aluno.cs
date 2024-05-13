@@ -9,7 +9,7 @@ namespace EM.Domain
     public class Aluno : IEntidade
     {
         public Aluno()
-        {       
+        {
         }
         public Aluno(int id_Alunos, int matricula, string nome, string? cPF, DateTime nascimento, EnumeradorSexo sexo, Cidade cidade)
         {
@@ -48,10 +48,8 @@ namespace EM.Domain
         [Required(ErrorMessage = "A cidade do usuário é obrigatório")]
         [Display(Name = "Cidade")]
 
-
         public Cidade Cidade { get; set; }
-
-      
+              
         public override bool Equals(object? obj)
         {
             return obj is Aluno aluno &&

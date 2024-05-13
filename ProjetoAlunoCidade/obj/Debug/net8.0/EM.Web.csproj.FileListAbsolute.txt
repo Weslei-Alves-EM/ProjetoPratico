@@ -43,3 +43,120 @@ C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Re
 C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.csproj.CopyComplete
 C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.sourcelink.json
 C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\itextsharp5.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.csproj.AssemblyReference.cache
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.AssemblyInfoInputs.cache
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.AssemblyInfo.cs
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.csproj.CoreCompileInputs.cache
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.RazorAssemblyInfo.cache
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.RazorAssemblyInfo.cs
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\refint\EM.Web.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.pdb
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\appsettings.json
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Domain.deps.json
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Domain.runtimeconfig.json
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Domain.exe
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Repository.deps.json
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Repository.runtimeconfig.json
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Repository.exe
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Web.staticwebassets.runtime.json
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Web.exe
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Web.deps.json
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Web.runtimeconfig.json
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Web.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Web.pdb
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\BouncyCastle.Crypto.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\FirebirdSql.Data.FirebirdClient.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\itextsharp.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Domain.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Repository.dll
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Domain.pdb
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\bin\Debug\net8.0\EM.Repository.pdb
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\staticwebassets\msbuild.EM.Web.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\staticwebassets\msbuild.build.EM.Web.props
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.EM.Web.props
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.EM.Web.props
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\scopedcss\bundle\EM.Web.styles.css
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\scopedcss\projectbundle\EM.Web.bundle.scp.css
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.csproj.Up2Date
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\EM.Web.genruntimeconfig.cache
+C:\Users\Weslei\Desktop\PROJETOSPRATICOS\PROJETOESTAGIOALUNO\ProjetoPratico\ProjetoAlunoCidade\obj\Debug\net8.0\ref\EM.Web.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Azure.Core.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Azure.Identity.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\BouncyCastle.Crypto.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\itextsharp.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Workspace Weslei\ProjetoAlunoCidade\ProjetoAlunoCidade\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll

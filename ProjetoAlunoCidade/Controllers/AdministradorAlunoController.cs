@@ -24,7 +24,7 @@ namespace EM.Web.Controllers
             return View(alunos);
         }
 
-        public IActionResult Buscar(string matricula, string nome, string estado)
+        public IActionResult BusqueAluno(string matricula, string nome, string estado)
         {
             IEnumerable<Aluno> alunos = null;
 
@@ -38,6 +38,10 @@ namespace EM.Web.Controllers
                     if (aluno != null)
                     {
                         alunos = new List<Aluno> { aluno };
+                    }
+                    else
+                    {
+                        alunos = _repositorioGeralAluno.GetAll();
                     }
                 }
             }
@@ -61,7 +65,7 @@ namespace EM.Web.Controllers
         }
 
 
-        public IActionResult CadastroAluno(int? id)
+        public IActionResult CadastreAluno(int? id)
         {
             ViewBag.Cidades = _repositorioGeralCidade.GetAll().ToList();
 
@@ -86,10 +90,11 @@ namespace EM.Web.Controllers
             ViewBag.IsEdicao = false;
             return View(new Aluno());
 
+
         }
 
         [HttpPost]
-        public IActionResult CadastroAluno(Aluno aluno)
+        public IActionResult CadastreAluno(Aluno aluno)
         {
             ViewBag.Cidades = _repositorioGeralCidade.GetAll().ToList();
 

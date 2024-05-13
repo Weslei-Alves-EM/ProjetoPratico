@@ -30,10 +30,8 @@ namespace EM.Web.Controllers.Reports
             imageCell.Border = PdfPCell.NO_BORDER;
             
             header.AddCell(imageCell);
-
-            BaseColor corLetraCabecalho = new(0, 100, 0);
-            Font fontCabecalho = new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, corLetraCabecalho);
-            Phrase textPhrase = new Phrase("RELAÇÃO GERAL DE ALUNOS", fontCabecalho);
+                        
+            Phrase textPhrase = new Phrase("RELAÇÃO GERAL DE ALUNOS", Fontes.FontTituloCabecalho());
             header.DefaultCell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
             header.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             header.AddCell(textPhrase);
@@ -46,25 +44,17 @@ namespace EM.Web.Controllers.Reports
 
             base.OnEndPage(writer, document);
 
-            int pageNumber = writer.PageNumber;
-            int totalPages = writer.PageNumber;
-
-            // Adiciona o rodapé
-            BaseColor corFonte = new(169, 169, 169);
-            BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            Font fonteFooter = new(bf, 10, Font.BOLD, corFonte);
-
             PdfPTable footer = new PdfPTable(2);
             footer.TotalWidth = document.PageSize.Width;
             footer.DefaultCell.Border = PdfPCell.NO_BORDER;
 
-            PdfPCell messageCell = new PdfPCell(new Phrase("Escolar Manager Softwares para Gestão Escolar", fonteFooter));
+            PdfPCell messageCell = new PdfPCell(new Phrase("Escolar Manager Softwares para Gestão Escolar", Fontes.FontInformacaoRodape()));
             messageCell.HorizontalAlignment = Element.ALIGN_LEFT;
             messageCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             messageCell.Border = PdfPCell.NO_BORDER;
             footer.AddCell(messageCell);
 
-            PdfPCell dateCell = new PdfPCell(new Phrase("Emissão\n" + DateTime.Now.ToString("dd/MM/yyyy"), fonteFooter));
+            PdfPCell dateCell = new PdfPCell(new Phrase("Emissão\n" + DateTime.Now.ToString("dd/MM/yyyy"), Fontes.FontInformacaoRodape()));
             dateCell.HorizontalAlignment = Element.ALIGN_CENTER;
             dateCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             dateCell.Border = PdfPCell.NO_BORDER;

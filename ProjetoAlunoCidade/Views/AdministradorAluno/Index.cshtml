@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Pagina de Alunos";
 }
 
@@ -11,16 +10,15 @@
             </div>
             <div class="col-6 text-right">
                 <!-- Botão cadastrar -->
-                <a role="button" class="btn dev-bg-color-musgo text-white" asp-controller="AdministradorAluno" asp-action="CadastroAluno">Cadastrar Aluno</a>
+                <a role="button" class="btn dev-bg-color-musgo text-white" asp-controller="AdministradorAluno" asp-action="CadastreAluno">Cadastrar Aluno</a>
             </div>
             <div class="col-12">
                 <hr>
             </div>
         </div>
 
-      
-
         <!-- Checkbox de filtro de busca -->
+
         <div class="form-check-inline">
             <b>Opção de busca: &nbsp;</b>
         </div>
@@ -37,19 +35,21 @@
             <label class="form-check-label" for="estadoRadio">Estado</label>
         </div>
 
-        <form class="form-row" id=" formBusca" action="/AdministradorAluno/Buscar" method="get">
+        <form class="form-row" id="formBusca" action="@Url.Action("BusqueAluno", "AdministradorAluno")" method="get">
+
             <div class="form-group mb-2 col-5" id="inputField">
                 <label for="valorBusca" class="sr-only "></label>
                 <input type="text" class="form-control " id="valorBusca" name="valorBusca" placeholder="Digite a matrícula, nome ou estado do aluno">
             </div>
             <div class="col-5">
                 <button type="submit" class="btn dev-bg-color-musgo text-white mb-2" id="btnBuscar">Buscar</button>
-
             </div>
+            @* Botão para gerar o relatório *@
+            <!-- Adicione isso onde você deseja que o botão seja exibido na sua página -->
+            <div><a href="@Url.Action("GerarPDF", "Reports")" class="btn btn-primary">Gerar Relatório PDF</a></div>
+
         </form>
-
         <!-- Tela dos alunos cadastrados -->
-
         <table class="table table-hover table-secondary table-bordered">
             <thead class="dev-bg-color-teal">
                 <tr class="text-white text-center">
@@ -75,7 +75,7 @@
                         <td>
                             <div class="d-grid gap-2 d-md-block row text-center">
                                 <a type="button" class="btn btn-fixed-width dev-bg-color-musgo dev-botao-largura text-white text-center"
-                                   href="@Url.Action("CadastroAluno", "AdministradorAluno", new { id = aluno.Id_Alunos })">
+                                   href="@Url.Action("CadastreAluno", "AdministradorAluno", new { id = aluno.Id_Alunos })">
                                     <i class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;"></i>Editar
                                 </a>
                                 <a type="button" class="btn btn-fixed-width dev-botao-largura btn-secondary text-center text-white"
@@ -89,9 +89,9 @@
                     <!-- Modal para exclusão -->
                     <div class="modal fade" id="modalExcluir_@aluno.Id_Alunos" tabindex="-1" role="dialog" aria-labelledby="modalExcluirLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
+                            <div class="modal-content">F
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modalExcluirLabel" >Tem certeza que deseja excluir esse aluno?</h5>
+                                    <h5 class="modal-title" id="modalExcluirLabel">Tem certeza que deseja excluir esse aluno?</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -109,23 +109,7 @@
                         </div>
                     </div>
                 }
-
-                @{
-                    ViewBag.Title = "Página do Relatório";
-                }
-
-                <h2>Página do Relatório</h2>
-
-                @* Botão para gerar o relatório *@
-                <!-- Adicione isso onde você deseja que o botão seja exibido na sua página -->
-                <a href="@Url.Action("GerarPDF", "Reports")" class="btn btn-primary">Gerar Relatório PDF</a>
-
-
             </tbody>
-
         </table>
     </div>
 </body>
-
-
-

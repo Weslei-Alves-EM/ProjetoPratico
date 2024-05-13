@@ -1,0 +1,50 @@
+﻿
+
+
+.dev-conf-icons {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.dev-bg-color-teal {
+    background-color: #237732;
+}
+
+.dev-bg-color-musgo {
+    background-color: #008080;
+}
+
+.dev-image-danger {
+    width: 150px;
+    height: 150px;
+    background-image: url(/images/danger.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.dev-botao-largura {
+    width: 85px;
+}
+
+.dev-image-logoManager {
+    width: 50px;
+    height: 50px;
+    background-image: url(/images/escolar_manager_logo.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.dev-icons-pencil {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+.dev-icons-recycleBin {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-position: center;
+}
+

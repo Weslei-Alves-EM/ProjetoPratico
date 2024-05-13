@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewData["Title"] = "Pagina de Alunos";
+}
+
+<body>
+    <div>
+        <div class="row">
+            <div class="col-6">
+                <h1>Tabela de Alunos</h1>
+            </div>
+            <div class="col-6 text-right">
+                <!-- Botão cadastrar -->
+                <a role="button" class="btn dev-bg-color-musgo text-white" asp-controller="AdministradorAluno" asp-action="CadastroAluno">Cadastrar Aluno</a>
+            </div>
+            <div class="col-12">
+                <hr>
+            </div>
+        </div>
+
+      
+
+        <!-- Checkbox de filtro de busca -->
+        <div class="form-check-inline">
+            <b>Opção de busca: &nbsp;</b>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="tipoBusca" id="matriculaRadio" value="matricula">
+            <label class="form-check-label" for="matriculaRadio">Matrícula</label>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="tipoBusca" id="nomeRadio" value="nome">
+            <label class="form-check-label" for="nomeRadio">Nome</label>
+        </div>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="tipoBusca" id="estadoRadio" value="estado">
+            <label class="form-check-label" for="estadoRadio">Estado</label>
+        </div>
+
+        <form class="form-row" id=" formBusca" action="/AdministradorAluno/Buscar" method="get">
+            <div class="form-group mb-2 col-5" id="inputField">
+                <label for="valorBusca" class="sr-only "></label>
+                <input type="text" class="form-control " id="valorBusca" name="valorBusca" placeholder="Digite a matrícula, nome ou estado do aluno">
+            </div>
+            <div class="col-5">
+                <button type="submit" class="btn dev-bg-color-musgo text-white mb-2" id="btnBuscar">Buscar</button>
+
+            </div>
+        </form>
+
+        <!-- Tela dos alunos cadastrados -->
+
+        <table class="table table-hover table-secondary table-bordered">
+            <thead class="dev-bg-color-teal">
+                <tr class="text-white text-center">
+                    <th scope="col">Matricula</th>
+                    <th scope="col" class="col-3">Nome</th>
+                    <th scope="col" class="col-1">Sexo</th>
+                    <th scope="col" class="col-1">UF</th>
+                    <th scope="col" class="col-2">Data de Nascimento</th>
+                    <th scope="col" class="col-2">CPF</th>
+                    <th scope="col" class="col-2">Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var aluno in Model)
+                {
+                    <tr class="text-center">
+                        <td>@aluno.Matricula</td>
+                        <td class="text-left">@aluno.Nome</td>
+                        <td>@aluno.Sexo</td>
+                        <td>@aluno.Cidade.UF</td>
+                        <td>@aluno.Nascimento.ToString("dd/MM/yyyy")</td>
+                        <td>@aluno.CPF</td>
+                        <td>
+                            <div class="d-grid gap-2 d-md-block row text-center">
+                                <a type="button" class="btn btn-fixed-width dev-bg-color-musgo dev-botao-largura text-white text-center"
+                                   href="@Url.Action("CadastroAluno", "AdministradorAluno", new { id = aluno.Id_Alunos })">
+                                    <i class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;"></i>Editar
+                                </a>
+                                <a type="button" class="btn btn-fixed-width dev-botao-largura btn-secondary text-center text-white"
+                                   data-toggle="modal" data-target="#modalExcluir_@aluno.Id_Alunos">
+                                    <i class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;"></i>Excluir
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Modal para exclusão -->
+                    <div class="modal fade" id="modalExcluir_@aluno.Id_Alunos" tabindex="-1" role="dialog" aria-labelledby="modalExcluirLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalExcluirLabel" >Tem certeza que deseja excluir esse aluno?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Nome: @aluno.Nome - Matrícula: @aluno.Matricula</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <form method="post" action="@Url.Action("RemoverAluno", "AdministradorAluno", new { id = aluno.Id_Alunos })">
+                                        <button type="submit" class="btn btn-danger">Excluir</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @{
+                    ViewBag.Title = "Página do Relatório";
+                }
+
+                <h2>Página do Relatório</h2>
+
+                @* Botão para gerar o relatório *@
+                <!-- Adicione isso onde você deseja que o botão seja exibido na sua página -->
+                <a href="@Url.Action("GerarPDF", "Reports")" class="btn btn-primary">Gerar Relatório PDF</a>
+
+
+            </tbody>
+
+        </table>
+    </div>
+</body>
+
+
+

@@ -1,7 +1,6 @@
 ﻿using EM.Domain;
-using EM.Repository.banco;
 using EM.Domain.Utilitarios;
-using FirebirdSql.Data.FirebirdClient;
+using EM.Repository.banco;
 using System.Data.Common;
 using System.Linq.Expressions;
 
@@ -16,8 +15,8 @@ namespace EM.Repository
 
             command.CommandText = "INSERT INTO Cidades (nome, UF) VALUES (@Nome, @UF)";
 
-            command.Parameters.CreateParameter("@Nome", cidade.Nome.ToUpper());
-            command.Parameters.CreateParameter("@UF", cidade.UF.ToUpper());
+            command.Parameters.CreateParameter("@Nome", cidade.Nome!.ToUpper());
+            command.Parameters.CreateParameter("@UF", cidade.UF!.ToUpper());
             command.ExecuteNonQuery();
         }
 
@@ -56,8 +55,8 @@ namespace EM.Repository
 
             command.CommandText = "UPDATE Cidades SET Nome = @Nome, UF = @UF WHERE Id_Cidade = @Id_Cidade";
 
-            command.Parameters.CreateParameter("@Nome", cidade.Nome.ToUpper());
-            command.Parameters.CreateParameter("@UF", cidade.UF.ToUpper());
+            command.Parameters.CreateParameter("@Nome", cidade.Nome!.ToUpper());
+            command.Parameters.CreateParameter("@UF", cidade.UF!.ToUpper());
             command.Parameters.CreateParameter("@Id_Cidade", cidade.Id_cidade);
             command.ExecuteNonQuery();
 

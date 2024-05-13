@@ -1,8 +1,7 @@
 ﻿using EM.Domain;
-using EM.Domain.Utilitarios;
 using EM.Domain.Enuns;
+using EM.Domain.Utilitarios;
 using EM.Repository.banco;
-using FirebirdSql.Data.FirebirdClient;
 using System.Data.Common;
 using System.Linq.Expressions;
 
@@ -37,7 +36,7 @@ namespace EM.Repository
             using DbConnection connect = ConnectionBanc.GetConnectionString();
             using DbCommand command = connect.CreateCommand();
 
-            command.CommandText = @"SELECT A.Id_Alunos, A.Matricula, A.Nome, A.Sexo, A.Nascimento, A.CPF, C.UF, C.Nome as NomeCidade
+            command.CommandText = @"SELECT A.Id_Alunos, A.Matricula, A.Nome, A.Sexo, A.Nascimento, A.CPF, C.UF, C.Nome as NomeCidade, C.Id_cidade 
                                     FROM Alunos A
                                     INNER JOIN Cidades C ON A.Id_cidade = C.Id_cidade";
 
@@ -55,6 +54,7 @@ namespace EM.Repository
                         CPF = reader["CPF"].ToString(),
                         Cidade = new Cidade
                         {
+                            Id_cidade = Convert.ToInt32(reader["Id_cidade"]),
                             UF = reader["UF"].ToString(),
                             Nome = reader["NomeCidade"].ToString()
                         }
@@ -101,7 +101,7 @@ namespace EM.Repository
         }
         public IEnumerable<Aluno> Get(Expression<Func<Aluno, bool>> predicate) => GetAll().Where(predicate.Compile());
 
-        public Aluno GetByMatricula(int matricula) => GetAll().First(mt => mt.Matricula == matricula);
+        public Aluno GetByMatricula(int matricula) => GetAll().FirstOrDefault(mt => mt.Matricula == matricula); 
 
         public IEnumerable<Aluno> GetByContendoNoNome(string parteDoNome) => GetAll().Where(a => a.Nome.IndexOf(parteDoNome, StringComparison.OrdinalIgnoreCase) >= 0);
 

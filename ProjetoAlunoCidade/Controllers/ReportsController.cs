@@ -19,6 +19,7 @@ namespace EM.Web.Controllers
 
 
         [HttpGet("Reports/GerarPDF", Name = "GerarPDF")]
+        [Obsolete]
         public ActionResult GerarPDF(string estadoId, string Ordem, string orientacao, bool zebrado)
         {
             List<Aluno> alunos = _repositorioGeralAluno.GetAll().ToList();

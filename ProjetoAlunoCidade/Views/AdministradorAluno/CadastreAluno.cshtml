@@ -1,0 +1,104 @@
+﻿@using EM.Domain.Enuns
+@model EM.Domain.Aluno
+@using EM.Repository;
+@{
+    bool isEdicao = ViewBag.IsEdicao ?? false;
+    string titulo = isEdicao ? "Editar Aluno" : "Cadastrar Aluno";
+    ViewData["Title"] = titulo;
+}
+<form method="post" asp-controller="AdministradorAluno" asp-action="CadastreAluno">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+    <!-- Campos do aluno -->
+    <!-- Nome -->
+    <input type="hidden" asp-for="Id_Alunos" />
+    <input type="hidden" asp-for="Id_Alunos" id="isEdicao" name="isEdicao" value="@isEdicao" />
+
+    <div class="form-group">
+        <label asp-for="Nome">Nome</label>
+        <input asp-for="Nome" type="text" class="form-control" id="Nome" name="Nome" aria-describedby="nameHelp" placeholder="Digite o nome" value="@Model.Nome">
+        <span asp-validation-for="Nome" class="text-white font-weight-bold bg-danger"></span>
+
+    </div>
+    <!-- CPF -->
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="CPF" for="CPF">CPF</label>
+            <input type="text" asp-for="CPF" class="form-control" id="CPF" name="CPF" oninput="this.value = formatarCPF(this.value)" placeholder="Digite o CPF" value="@Model.CPF">
+            <span asp-validation-for="CPF" class="text-white font-weight-bold bg-danger"></span>
+        </div>
+      
+        <div class="form-group col-md-6">
+            <label asp-for="Nascimento" for="Date">Data de nascimento</label>
+            <input type="date" asp-for="Nascimento" class="form-control" id="Nascimento" name="Nascimento" placeholder="" value="@((Model.Nascimento != DateTime.MinValue) ? Model.Nascimento.ToString("yyyy-MM-dd") : "")">
+            <span asp-validation-for="Nascimento" class="text-white font-weight-bold bg-danger"></span>
+        </div>
+
+    </div>
+    <!-- Sexo -->
+    @{
+        string generoSelecionado = "";
+        if (Model != null && titulo == "Editar Aluno")
+        {
+            generoSelecionado = Model.Sexo.ToString();
+        }
+    }
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputGender">Gênero</label>
+
+            @if (titulo == "Cadastrar Aluno")
+            {
+                <select asp-for="Sexo" id="inputGender" class="form-control">
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                    <option value="" selected disabled hidden>Escolha o gênero</option>
+                </select>
+            }
+            else
+            {
+                <select asp-for="Sexo" id="inputGender" class="form-control">
+                    <option value="M" selected="@generoSelecionado.Equals("M", StringComparison.OrdinalIgnoreCase)">Masculino</option>
+                    <option value="F" selected="@generoSelecionado.Equals("F", StringComparison.OrdinalIgnoreCase)">Feminino</option>
+                </select>
+            }
+            <span asp-validation-for="Sexo" class="text-white font-weight-bold bg-danger"></span>
+
+        </div>
+
+        <span asp-validation-for="Sexo" class="text-white font-weight-bold bg-danger"></span>
+
+        <!-- Cidade -->
+
+
+        <div class="form-group col-md-6">
+            <label for="inputCidade">Cidade</label>
+            @if (titulo == "Cadastrar Aluno")
+            {
+
+            }
+            <select asp-for="Cidade.Id_cidade" name="Cidade.Id_cidade" id="Cidade.Id_cidade" class="form-control">
+                <option value="">Selecione uma cidade</option>
+
+                @foreach (var cidade in ViewBag.Cidades)
+                {
+                    if (Model.Cidade != null && Model.Cidade.Id_cidade == cidade.Id_cidade)
+                    {
+                        <option value="@cidade.Id_cidade" selected>@cidade.Nome - @cidade.UF</option>
+
+                    }
+                    else
+                    {
+                        <option value="@cidade.Id_cidade">@cidade.Nome - @cidade.UF</option>
+
+                    }
+                }
+                }
+            </select>
+            <span asp-validation-for="Cidade" class="text-white font-weight-bold bg-danger"></span>
+        </div>
+
+    </div>
+    <!-- Botao salvar/voltar-->
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a type="button" class="btn btn-fixed-width btn-secondary" asp-controller="AdministradorAluno" asp-action="Index">Voltar</a>
+</form>

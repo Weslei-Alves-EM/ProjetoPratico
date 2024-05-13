@@ -9,9 +9,9 @@ namespace EM.Web.Controllers
 
         readonly IRepositorioGeral<Cidade> _repositorioCidade;
 
-        public AdministradorCidadeController(IRepositorioGeral<Cidade> reposiitorioCidade)
+        public AdministradorCidadeController(IRepositorioGeral<Cidade> repositorioCidade)
         {
-            _repositorioCidade = reposiitorioCidade;
+            _repositorioCidade = repositorioCidade;
         }
 
         public IActionResult Index()

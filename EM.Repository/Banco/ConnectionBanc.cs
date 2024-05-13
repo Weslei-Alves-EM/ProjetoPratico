@@ -20,5 +20,23 @@ namespace EM.Repository.banco
             return connection;
         }
     }
+    //public class ConnectionBanc
+    //{
+    //    static string _onnectionString =
+    //         @"Server=DESKTOP-8LAD38N\SQLEXPRESS;Database=ProjetoPraticoCRUDAluno;Integrated Security=true;TrustServerCertificate=true;";
+    //    private static SqlConnection? connection = null;
+
+    //    public static SqlConnection GetConnectionString()
+    //    {
+    //        if (connection == null || connection.State != System.Data.ConnectionState.Open)
+    //        {
+    //            FbConnection.ClearAllPools();
+    //            connection = new SqlConnection(_onnectionString);
+    //            connection.Open();
+    //        }
+
+    //        return connection;
+    //    }
+    //}
 }
 

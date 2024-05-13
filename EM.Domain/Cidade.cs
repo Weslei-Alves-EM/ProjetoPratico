@@ -1,5 +1,6 @@
 ﻿
 using EM.Domain.Interface;
+using System.ComponentModel.DataAnnotations;
 
 namespace EM.Domain
 {
@@ -19,7 +20,10 @@ namespace EM.Domain
 
 
         public int Id_cidade { get; set; }
+        [Required]
         public string? Nome { get; set; }
+
+        [Required]
         public string? UF { get; set; }
 
         public override bool Equals(object? obj)

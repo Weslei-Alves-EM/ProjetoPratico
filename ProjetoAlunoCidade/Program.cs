@@ -9,7 +9,7 @@ namespace EM.Web
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddTransient<IRepositorioAluno<Aluno>, RepositorioAluno>();            
+            builder.Services.AddTransient<IRepositorioAluno<Aluno>, RepositorioAluno>();
             builder.Services.AddTransient<IRepositorioGeral<Aluno>, RepositorioAluno>();
             builder.Services.AddTransient<IRepositorioGeral<Cidade>, RepositorioCidade>();
 
@@ -35,14 +35,19 @@ namespace EM.Web
                 pattern: "{controller=AdministradorAluno}/{action=Index}/{id?}");
 
             app.MapControllerRoute(
-                name: "cadastroAluno",
+                name: "CadastreAluno",
                 pattern: "AdministradorAluno/Cadastro",
-                defaults: new { controller = "AdministradorAluno", action = "CadastroAluno" });
+                defaults: new { controller = "AdministradorAluno", action = "CadastreAluno" });
 
             app.MapControllerRoute(
                 name: "removerAluno",
                 pattern: "AdministradorAluno/RemoverAluno/{id}",
                 defaults: new { controller = "AdministradorAluno", action = "Index" });
+
+            app.MapControllerRoute(
+                name: "buscar",
+                pattern: "AdministradorAluno/BusqueAluno",
+                defaults: new { controller = "AdministradorAluno", action = "BusqueAluno" });
 
             app.MapControllerRoute(
                 name: "gerarPdf",
